@@ -55,13 +55,17 @@ Prerequicities: Toolchain of the previous course installed.
 
 1. test your setup: `npm run dev`
 
-`req` variable is an object containing information about the HTTP request that raised the event. e.g.:
+`req` variable is an [request object](https://nodejs.org/api/http.html#class-httpclientrequest) containing information about the HTTP request that raised the event. e.g.:
 
 - `req.url`: the request URL string
 - `req.method`: the HTTP request method
 - `req.headers`: the request headers
 
-In response to `req`, use `res` object's methods to send the desired HTTP response back to the client.
+In response to `req`, use [response object's](https://nodejs.org/api/http.html#class-httpserverresponse) (`res`) properties/methods to send the desired HTTP response back to the client. e.g.:
+
+- `re.statusCode`: set the response status code
+- `res.write()`: add content to response body
+- `res.end()`: send te response
 
 Payload data (request body) can be [extracted manually](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction#request-body) from the request stream.
 
