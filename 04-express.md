@@ -189,9 +189,10 @@ Implement a simple REST API with Express framework:
    - provide some information about your API, use dynamic content rendering
 1. Implement API endpoints following the API documentation and using the mock data provided
    - note that API documentation is not complete, you need to figure out missing details. for example add correct status codes and corresponding messages or data to the responses
-1. Serve static media files from `src/media` folder
+1. Serve static media files from `media` folder
    - use e.g. some small-sized images from Internet
    - match the filenames with the mock data
+1. Extra: Use [jsDoc](https://jsdoc.app/index.html) comments
 
 **Returning:** A short report describing your implementation including a link to your code in Github and screen shots of your running environment. Check assignment in OMA for more details.
 
