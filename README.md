@@ -9,7 +9,7 @@ Web back-end development, course material & assignments.
 3. [Frameworks](03-frameworks.md)
 4. [Express](04-express.md)
 5. [Relational Databases & SQL 1](05-databases.md)
-6. [Relational Databases & SQL 2](#)
+6. [Relational Databases & SQL 2](06-database-api.md)
 7. [Routing](#)
 8. [Deployment](#)
 9. [Validating user input](#)

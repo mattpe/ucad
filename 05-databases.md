@@ -475,7 +475,7 @@ Thing about media sharing app. What kind of data is needed?
 1. Define the data types for the columns
 1. Define primary keys and foreign keys
 1. Implement SQL statements for creating the tables
-1. Insert multiple record of mock data into them.
+1. Insert multiple records of mock data into the tables
 1. Think about use cases for the data from the application point of view and provide examples how to update, delete and query the data in a meaningful way
 1. Create a script including all your SQL statements (create tables, insert data, queries, updates, etc.)
 
