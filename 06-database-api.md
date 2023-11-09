@@ -1,6 +1,6 @@
-# Databases and Node Express
+# Database design
 
-## Simple Media sharing REST API example database design
+## Example database for Simple Media sharing REST API
 
 Entity-relationship diagram
 
@@ -61,8 +61,8 @@ Table Tags {
 }
 
 Table MediaItemTags {
-  media_id INT FK
-  tag_id INT FK
+  media_id INT PK, FK
+  tag_id INT PK, FK
 }
 
 Users ||--o{ MediaItems : owns
@@ -249,7 +249,7 @@ UPDATE Users SET user_level_id =
 
 ## Assignment 3B - Database design for you project application
 
-Thing about the features of your server-side application/API. What kind of data is needed to store in the database to implement all of the requirements/functionalities of your app?
+Think about the features of your server-side application/API. What kind of data is needed to store in the database to implement all of the requirements/functionalities of your app?
 
 1. List your requirements/functionalities
 1. Identify and design the entities (tables) and relations between them

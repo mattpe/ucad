@@ -462,7 +462,7 @@ DELETE FROM MediaItems WHERE media_id = 9632;
 
 ## Assignment 3A - Relational Databases
 
-Thing about media sharing app. What kind of data is needed?
+Think about media sharing app. What kind of data is needed?
 
 1. Design couple tables more for the app (in addition to the ones we already have in examples)
 1. Draw a diagram of the database structure (including relations between tables)
