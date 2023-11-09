@@ -379,12 +379,6 @@ SELECT MediaItems.*, Users.username
   FROM MediaItems 
   JOIN Users ON MediaItems.user_id = Users.user_id;
 
--- Count the number of media items each user has
-SELECT Users.username, COUNT(MediaItems.media_id) AS NumberOfMediaItems 
-  FROM Users 
-  JOIN MediaItems ON Users.user_id = MediaItems.user_id 
-  GROUP BY Users.username;
-
 -- Select media items with the highest filesize for each user using a subquery:
 SELECT * FROM MediaItems AS MI1
 WHERE filesize = (

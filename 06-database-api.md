@@ -205,6 +205,12 @@ SELECT media_id, COUNT(media_id) AS likes
   FROM Likes GROUP BY media_id
   ORDER BY likes DESC LIMIT 1;
 
+-- Count the number of media items each user has
+SELECT Users.username, COUNT(MediaItems.media_id) AS NumberOfMediaItems 
+  FROM Users 
+  JOIN MediaItems ON Users.user_id = MediaItems.user_id 
+  GROUP BY Users.username;
+
 -- select username who have most likes for their media items
 SELECT username, COUNT(media_id) AS likes
   FROM Likes
