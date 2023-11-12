@@ -102,7 +102,7 @@ This is a basic table for documentation. Depending on the complexity of the API,
    - _readme.md_
    - _nodemon_ for running the dev environment (use local npm package and start with npm script)
    - git repo: include `.gitignore` and set a remote repo in Github, create and checkout a new branch `node-start`
-1. Implement a (dummy) REST API including following resourses/endopoints: (1 p.)
+1. Implement a (dummy) REST API including following resources/endpoints: (1 p.)
    - read some data from server (send response in json format)
    - send some data to server
    - delete data (just a dummy functionality, test error response too)
