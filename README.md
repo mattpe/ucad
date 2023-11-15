@@ -10,7 +10,7 @@ Web back-end development, course material & assignments.
 4. [Express](04-express.md)
 5. [Relational Databases & SQL 1](05-databases.md)
 6. [Relational Databases & SQL 2](06-database-api.md)
-7. [Routing, middlewares and database in Exprees](07-routing.md)
+7. [Routing, middlewares and database in Express](07-routing.md)
 8. [Deployment](#)
 9. [Input validation](#)
 10. [Error handling](#)
