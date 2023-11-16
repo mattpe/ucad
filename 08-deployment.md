@@ -155,15 +155,14 @@ Help for Linux usage:
 1. Connect to your database server as a root user: `sudo mysql -u root` and create a database and a user with privileges on it:
 
    ```sql
-   CREATE DATABASE catdb;
-   CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-   GRANT ALL PRIVILEGES ON `catdb`.* TO 'username'@'localhost';
+   CREATE USER 'myusername'@'localhost' IDENTIFIED BY 'mypassword';
+   GRANT ALL PRIVILEGES ON `databasename`.* TO 'myusername'@'localhost';
    FLUSH PRIVILEGES;
    ```
 
    (in case you would need outside access (e.g. during project, separate database server from app server), replace `localhost` with `'%'` in the two GRANT queries and remember that the settings you did with `mysql_secure_installation` may prevent this).
 
-1. Download the [cat-db-starter.sql](./cat-db-starter.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp cat-db-starter.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
+1. Download the [cat-db-starter.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp cat-db-starter.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
 1. Import the tables and insert the data: `mysql -u dbuser -p catdb < cat-db-starter.sql`
 1. Eventually check that data is there: `mysql -u dbuser -p catdb`
 
