@@ -11,7 +11,7 @@ Web back-end development, course material & assignments.
 5. [Relational Databases & SQL 1](05-databases.md)
 6. [Relational Databases & SQL 2](06-database-api.md)
 7. [Routing, middlewares and database in Express](07-routing.md)
-8. [Deployment](#)
+8. [Deployment](08-deployment.md)
 9. [Input validation](#)
 10. [Error handling](#)
 11. [Documenting and testing API](#)
