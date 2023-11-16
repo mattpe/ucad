@@ -155,30 +155,32 @@ Help for Linux usage:
 1. Connect to your database server as a root user: `sudo mysql -u root` and create a database and a user with privileges on it:
 
    ```sql
+   CREATE DATABASE MediaSharingApp;
    CREATE USER 'myusername'@'localhost' IDENTIFIED BY 'mypassword';
-   GRANT ALL PRIVILEGES ON `databasename`.* TO 'myusername'@'localhost';
+   GRANT ALL PRIVILEGES ON `MediaSharingApp`.* TO 'myusername'@'localhost';
    FLUSH PRIVILEGES;
    ```
 
    (in case you would need outside access (e.g. during project, separate database server from app server), replace `localhost` with `'%'` in the two GRANT queries and remember that the settings you did with `mysql_secure_installation` may prevent this).
 
-1. Download the [media-db.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp cat-db-starter.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
-1. Import the tables and insert the data: `mysql -u dbuser -p catdb < cat-db-starter.sql`
-1. Eventually check that data is there: `mysql -u dbuser -p catdb`
+2. Download the [media-db.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp media-db.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
+3. Import the tables and insert the data: `mysql -u myusername -p < media-db.sql` or `sudo mysql < media-db.sql`
+4. Eventually check that the useraccount works and the data is there: `mysql -u myusername -p `
 
    ```sql
+   USE MediaSharingApp;
    SHOW TABLES;
-   SELECT * FROM wop_cat;
+   SELECT * FROM MediaItems;
    exit
    ```
 
-1. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check for example [instructions here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-22-04)
+5. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check for example [instructions here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-22-04)
 
 #### Node.js runtime and process management
 
-![Apache reverse proxy](./img/apache-node-proxy.png)
+![Apache reverse proxy](./assets/apache-node-proxy.png)
 
-1. Install _node.js_ and _npm_ (read e.g. [some instructions](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)):
+1. Install _node.js_ and _npm_  from [nodesource package repository](https://github.com/nodesource/distributions#ubuntu-versions) (read e.g. [some instructions](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)):
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
