@@ -355,8 +355,8 @@ Content-Type: image/jpeg
       connectionLimit: 10,
       queueLimit: 0,
     });
-
-    export default pool;
+    const promisePool = pool.promise();
+    export default promisePool;
     ```
 
 ### MySQL2 examples
