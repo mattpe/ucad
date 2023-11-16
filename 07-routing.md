@@ -342,9 +342,7 @@ Content-Type: image/jpeg
 
     ```js
     import mysql from 'mysql2';
-    import dotenv from 'dotenv';
-
-    dotenv.config();
+    import 'dotenv/config';
 
     const pool = mysql.createPool({
       host: process.env.DB_HOST,
@@ -501,6 +499,6 @@ export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
      - What features/functions you implemented and why?
      - How they work?
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and and corresponding responsenses in practise) . Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and and corresponding responses in practise). Check assignment in OMA for more details.
 
 **Grading:** max 5 (+1 extra) points, see details in assignment requirements above.
