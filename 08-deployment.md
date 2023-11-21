@@ -163,9 +163,9 @@ Help for Linux usage:
 
    (in case you would need outside access (e.g. during project, separate database server from app server), replace `localhost` with `'%'` in the two GRANT queries and remember that the settings you did with `mysql_secure_installation` may prevent this).
 
-2. Download the [media-db.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp media-db.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
-3. Import the tables and insert the data: `mysql -u myusername -p < media-db.sql` or `sudo mysql < media-db.sql`
-4. Eventually check that the useraccount works and the data is there: `mysql -u myusername -p `
+1. Download the [media-db.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp media-db.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
+1. Import the tables and insert the data: `mysql -u myusername -p < media-db.sql` or `sudo mysql < media-db.sql`
+1. Eventually check that the user account works and the data is there: `mysql -u myusername -p`
 
    ```sql
    USE MediaSharingApp;
@@ -174,7 +174,7 @@ Help for Linux usage:
    exit
    ```
 
-5. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check for example [instructions here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-22-04)
+1. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check for example [instructions here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-22-04)
 
 #### Node.js runtime and process management
 
