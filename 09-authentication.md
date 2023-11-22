@@ -256,8 +256,12 @@ In web applications, authentication is typically done by verifying a username an
    - `PUT /api/users/` - users can update only their own user info
    - and so on...
    - describe your rules in report/readme/docs
-1. Bonus: implement user roles (e.g. admin, user) with different permissions
-   - For example, admin level users can update or delete any media items, user info, etc.
+1. Bonus: implement user roles (e.g. admin, user) with different permissions (role based resource authorization)
+   - Regular users can only delete and edit their own data, media items, comments, etc.
+     - Modify the `DELETE` and `UPDATE` SQL queries in models so that queries will also check that the owner of the item (user_id) matches the `user_id` property in the `req.user` object. `req.user` is decoded from the token and needs to be passed as a parameter from controller to corresponding model method.
+   - Admin level users can update or delete any media items, user info, etc.
+     - Add another `DELETE` and `UPDATE` SQL queries into model functions that do not check the `user_id` property.
+     - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
 
 **Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and and corresponding responsenses in practise) . Check assignment in OMA for more details.
 

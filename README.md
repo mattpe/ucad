@@ -13,6 +13,6 @@ Web back-end development, course material & assignments.
 7. [Routing, middlewares and database in Express](07-routing.md)
 8. [Deployment](08-deployment.md)
 9. [Application state and authentication](09-authentication.md)
-10. [Input validation and error handling](#)
+10. [Input validation and error handling](10-validation.md)
 11. [Documenting and testing API](#)
 12. [Web application security](#)
