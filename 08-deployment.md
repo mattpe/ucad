@@ -209,12 +209,12 @@ Help for Linux usage:
         ...
 
         # Choose only one of the following options:
-        # conf for subfolder /api
-        ProxyPreserveHost On
-        ProxyPass /api/ http://127.0.0.1:3000/
-        ProxyPassReverse /api/ http://127.0.0.1:3000/
+        # conf for URL subpath, e.g.: https://myserver.example.com/api/ <-> localhost:3000
+        #ProxyPreserveHost On
+        #ProxyPass /api/ http://127.0.0.1:3000/
+        #ProxyPassReverse /api/ http://127.0.0.1:3000/
 
-        # conf for root folder
+        # OR conf for root path: https://myserver.example.com/ <-> localhost:3000
         ProxyPreserveHost On
         ProxyPass / http://127.0.0.1:3000/
         ProxyPassReverse / http://127.0.0.1:3000/
@@ -254,7 +254,7 @@ Help for Linux usage:
       DB_NAME=<your-db-name>
       ```
 
-   1. to test start your application: `node app.js` or `npm start`
+   1. to test start your application: `node src/index.js` or `npm start`
    1. to kill the app, use `CTRL+C`, or if no more hanging in your terminal session, try `pkill node` or use `top`
    1. test: open a browser and visit `https://<your-ip-address-or-hostname>/app/cat`
    1. to have your app running "forever" as a background service, featuring automatic restart on crash, use e.g. [pm2](https://pm2.keymetrics.io/):
