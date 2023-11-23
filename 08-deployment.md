@@ -272,7 +272,7 @@ Help for Linux usage:
 
 #### Static UI files (Front-end)
 
-Front-end HTML/CSS/JS files can be served from any web server. Easiest solution is to use the Express static files serving option. Then you don't need care about cors issues.
+Front-end HTML/CSS/JS files can be served from any web server. **Easiest solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues.
 
 But you can use the Apache server directly as well:
 
@@ -280,6 +280,8 @@ But you can use the Apache server directly as well:
 1. Change the server url value in all front-end JS files: `http://localhost:3000` -> `https://your.server.azure.com/app`
 1. Upload/copy/clone your front-end files to the server's `/var/www/html/` directory
 1. Test: open a browser and visit `https://<your-ip-address-or-hostname>/`
+
+Some simple front-end examples how to access the REST API are found [here](./assets/example-ui/).
 
 #### Cross-Origin Resource Sharing (CORS)
 

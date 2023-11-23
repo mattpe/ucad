@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      main {
+        display: flex;
+      }
+      .column {
+        flex: 50%;
+      }
+      input {
+        display: block;
+      }
+      .output {
+        position: fixed;
+        top: 0;
+      }
+    </style>
+    <script defer src="forms.js"></script>
+    <title>Simple form/fetch examples</title>
+  </head>
+  <body>
+    <h1>Simple form/fetch examples</h1>
+    <main>
+      <section class="forms column">
+        <h2>Forms</h2>
+        <div id="reg-form-1">
+          <h3>Reg Form 1</h3>
+          <p>Basic form posts 'x-www-form-urlencoded'</p>
+          <form action="/api/users" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" />
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter email" />
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="Enter password" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div id="reg-form-2">
+          <h3>Reg Form 2</h3>
+          <p>Basic form, default action</p>
+          <form>
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" />
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter email" />
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="Enter password" />
+            <button>Submit</button>
+          </form>
+        </div>
+
+        <div id="reg-form-3">
+          <h3>Reg Form 3</h3>
+          <p>Form handled with js fetch()</p>
+          <form>
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" />
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter email" />
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="Enter password" />
+            <button>Submit</button>
+          </form>
+        </div>
+        <hr />
+        <div id="login-form-1">
+          <h3>Login Form 1</h3>
+          <p>Basic form posts 'x-www-form-urlencoded'</p>
+          <form action="/api/auth/login" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" />
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="Enter password" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div id="login-form-2">
+          <h3>Login Form 2</h3>
+          <p>Handled with JS</p>
+          <form action="/api/auth/login">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" />
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="Enter password" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <hr />
+        <!-- NOTE: back-end must support token as input field for this to work-->
+        <div id="upload-form-1">
+          <h3>Upload Form 1</h3>
+          <p>Basic form posts 'form-data'</p>
+          <form action="/api/media" method="post" enctype="multipart/form-data">
+            <label for="title">title</label>
+            <input type="text" name="title" placeholder="Enter title" />
+            <label for="description">description</label>
+            <input type="description" name="description" placeholder="Enter description" />
+            <label for="file">file</label>
+            <input type="file" name="file" />
+            <input type="hidden" name="token" value="PUT-AUTHENTICATION-TOKEN-HERE>" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div id="upload-form-2">
+          <h3>Upload Form 2</h3>
+          <p>Form handled with JS</p>
+          <form>
+            <label for="title">title</label>
+            <input type="text" name="title" placeholder="Enter title" />
+            <label for="description">description</label>
+            <input type="description" name="description" placeholder="Enter description" />
+            <label for="file">file</label>
+            <input type="file" name="file" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="column">
+        <div class="output">
+          <h3>Output</h3>
+          <code id="output"></code>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
