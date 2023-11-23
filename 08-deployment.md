@@ -254,20 +254,20 @@ Help for Linux usage:
       DB_NAME=<your-db-name>
       ```
 
-   1. TODO: PRODUCTION CONF FOR NODE
    1. to test start your application: `node app.js` or `npm start`
    1. to kill the app, use `CTRL+C`, or if no more hanging in your terminal session, try `pkill node` or use `top`
    1. test: open a browser and visit `https://<your-ip-address-or-hostname>/app/cat`
-   1. to have your app running "forever", including restart on crash, use e.g. [pm2](https://pm2.keymetrics.io/):
+   1. to have your app running "forever" as a background service, featuring automatic restart on crash, use e.g. [pm2](https://pm2.keymetrics.io/):
 
       ```bash
       sudo npm install -g pm2
-      pm2 start app.js --name <MY-SERVER-APP-NAME>
+      pm2 start src/index.js --name <MY-SERVER-APP-NAME>
       ```
 
    1. to check the status of running node apps, run `pm2 status`
    1. to check for possible errors log files can be accessed with `pm2 logs`
-   1. if you want that the app reload on change (e.g. on next `git pull`), use the `--watch` flag.
+   1. restart app after code updates: `pm2 restart <app-name>` 
+   1. if you want that the app automatically reload on change (e.g. on next `git pull`), use the `--watch` flag.
    1. (optional) "pure" linux option could be using [systemd](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for creating a system process.
 
 #### Static UI files (Front-end)
