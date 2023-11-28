@@ -94,6 +94,8 @@ This is a basic table for documentation. Depending on the complexity of the API,
 - Error message details for different status codes.
 - Authentication/Authorization details.
 
+---
+
 ## Assignment 1 - Getting started with node.js
 
 1. Create a node.js project, requirements: (1 p.)
@@ -130,6 +132,6 @@ Remember that following good coding practices makes your app a lot more easier t
 - Line length: avoid writing horizontally long lines of code
 - Avoid large code files, split to smaller modules
 
-**Returning:** A short report describing your implementation including a link to your code in Github and screen shots of your running environment. Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.

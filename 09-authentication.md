@@ -263,6 +263,6 @@ In web applications, authentication is typically done by verifying a username an
      - Add another `DELETE` and `UPDATE` SQL queries into model functions that do not check the `user_id` property.
      - Use e.g. conditional statements in the models to decide which SQL query to use based on the user level.
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and and corresponding responsenses in practise) . Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
 
 **Grading:** max 3 points, see details in assignment requirements above.

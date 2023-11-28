@@ -175,6 +175,8 @@ app.post('/api/resource', (req, res) => {
 });
 ```
 
+---
+
 ## Assignment 2 - Getting started with Express framework
 
 Implement a simple REST API with Express framework:
@@ -194,6 +196,6 @@ Implement a simple REST API with Express framework:
    - match the filenames with the mock data
 1. Extra: Use [jsDoc](https://jsdoc.app/index.html) comments
 
-**Returning:** A short report describing your implementation including a link to your code in Github and screen shots of your running environment. Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.

@@ -469,6 +469,8 @@ export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
 
 [mysql2](https://github.com/sidorares/node-mysql2#readme), which we use in the assignments, is a MySQL client library that requires writing SQL queries manually, offering more control and efficiency at the expense of convenience and higher code complexity for database interactions. It's often preferred for applications where direct SQL control is necessary or for simpler database needs.
 
+---
+
 ## Assignment 4 - Express MVC and database
 
 1. Continue your existing Express app and create a branch `express-db`
@@ -499,6 +501,6 @@ export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
      - What features/functions you implemented and why?
      - How they work?
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and and corresponding responses in practise). Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responses in practice). Check assignment in OMA for more details.
 
 **Grading:** max 5 (+1 extra) points, see details in assignment requirements above.

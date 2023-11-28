@@ -266,7 +266,7 @@ Help for Linux usage:
 
    1. to check the status of running node apps, run `pm2 status`
    1. to check for possible errors log files can be accessed with `pm2 logs`
-   1. restart app after code updates: `pm2 restart <app-name>` 
+   1. restart app after code updates: `pm2 restart <app-name>`
    1. if you want that the app automatically reload on change (e.g. on next `git pull`), use the `--watch` flag.
    1. (optional) "pure" linux option could be using [systemd](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for creating a system process.
 

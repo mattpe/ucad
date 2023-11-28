@@ -460,6 +460,8 @@ DELETE FROM MediaItems WHERE media_id = 9632;
   - export using a command line tool: `mysqldump -u username -p database_name > path-to-script.sql`
   - Used for backups, copying and moving databases, etc.
 
+---
+
 ## Assignment 3A - Relational Databases
 
 Think about media sharing app. What kind of data is needed?

@@ -14,5 +14,6 @@ Web back-end development, course material & assignments.
 8. [Deployment](08-deployment.md)
 9. [Application state and authentication](09-authentication.md)
 10. [Input validation and error handling](10-validation.md)
-11. [Documenting and testing API](#)
-12. [Web application security](#)
+11. [Web application security](11-security.md)
+12. [API documentation](#)
+13. Project tips & examples
