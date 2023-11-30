@@ -21,6 +21,8 @@ Documenting a REST API is crucial for both internal development and external API
   - Change Log: Document the history of significant changes to the API.
   - Terms of Use and Contact Information
 
+One example of well-made API docs: [Stripe API Reference](https://stripe.com/docs/api)
+
 ## Documentation Tools
 
 - There are several tools, specifications and markup languges available for creating/generating documentation.
