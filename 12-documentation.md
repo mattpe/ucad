@@ -25,7 +25,7 @@ One example of well-made API docs: [Stripe API Reference](https://stripe.com/doc
 
 ## Documentation Tools
 
-- There are several tools, specifications and markup languges available for creating/generating documentation.
+- There are several tools, specifications and markup languages available for creating/generating documentation.
 - Reading: [Understanding the Differences Between API Documentation, Specifications, and Definitions](https://swagger.io/resources/articles/difference-between-api-documentation-specification/)
 
 ### Swagger
@@ -47,8 +47,8 @@ One example of well-made API docs: [Stripe API Reference](https://stripe.com/doc
 #### Usage example
 
 1. Install apidoc package: `npm install apidoc`
-1. Add apidoc script to package.json: `"apidoc": "apidoc -i src/ -o docs/"`
-1. Add apidoc configutation to `package.json`:
+1. Add apidoc script to `package.json`, for example: `"apidoc": "apidoc -i src/ -o docs/"`
+1. Add apidoc configuration to `package.json`:
 
    ```json
    ...
@@ -111,7 +111,7 @@ One example of well-made API docs: [Stripe API Reference](https://stripe.com/doc
 1. Add `docs/` folder to `.gitignore` file
 1. Browse to `http://localhost:3000/docs/` to see the generated documentation
 
-Example annotations for auth-router.mjs:
+Example annotations for `auth-router.mjs`:
 
 ```js
 const authRouter = express.Router();
