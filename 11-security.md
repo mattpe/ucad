@@ -49,6 +49,8 @@ While data security and data privacy are distinct, they are deeply interconnecte
      - For example, a user might be allowed to read data only during business hours or only from a specific IP address.
 1. **Token Management**
    - If using tokens (such as JWT), ensure proper token validation, expiration checks, and secure storage.
+   - Check that the user stored in the token is still valid and has the required permissions.
+     - For example, if a user is deleted from the database, their token should no longer be valid.
    - Implement token revocation mechanisms in case of compromised tokens.
      - In practice, this means that the server should keep track of issued tokens and their validity. If a token is compromised, it can be added to a blacklist and rejected by the server.
 1. **Secure Data Transmission**
@@ -96,6 +98,7 @@ While data security and data privacy are distinct, they are deeply interconnecte
 
 Reading:
 
+- [Handling CORS in Express](https://expressjs.com/en/resources/middleware/cors.html)
 - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)
 - [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 - [OWASP NodeJS Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html)
