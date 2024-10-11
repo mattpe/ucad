@@ -26,7 +26,7 @@ A software library is a collection of pre-compiled routines, classes, or functio
 
 ### Software Toolkit
 
-A software toolkit, often just called a toolkit, is a collection of software tools, libraries, and utilities meant to help developers create applications. Toolkits typically focus on a specific aspect of software development, such as GUI development (like the GTK toolkit for graphical interfaces) or data visualization (like D3.js for creating interactive data visualizations in web applications). Toolkits can be seen as a subset of libraries, often more specialized.
+A software toolkit, often just called a toolkit, is a collection of software tools, libraries, and utilities meant to help developers create applications. Toolkits typically focus on a specific aspect of software development, such as GUI development (like the GTK toolkit for graphical interfaces) or data visualization (like D3.js for creating interactive data visualizations in web applications). In addition to libraries, they may include utilities and other resources for a specific purpose.
 
 ### Software Development Kit (SDK)
 
@@ -44,7 +44,7 @@ In summary:
 
 Based on the assignment last week, what benefits would you get from using a framework?
 
-## Rendering strategies
+## Rendering strategies for web applications
 
 ### Client-Side Rendering (CSR)
 

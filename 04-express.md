@@ -57,8 +57,8 @@ app.listen(port, hostname, () => {
 - [Middlewares](https://expressjs.com/en/guide/using-middleware.html): functions that have access to the request object (req), the response object (res) in the application’s request-response cycle.
 - Support for several [template engines](https://expressjs.com/en/guide/using-template-engines.html)
   - [Pug](https://pugjs.org/) (formerly Jade) is the default template engine
-- [Express application generator](https://expressjs.com/en/starter/generator.html)
-  - quick Express app scaffolding, e.g: `npx express-generator --view=pug pug-app`
+- [Express application generator](https://expressjs.com/en/starter/generator.html) tool
+  - provides quick Express app scaffolding, e.g: `npx express-generator --view=pug pug-app`
   - the app structure created by the generator is just one of many ways to structure Express apps and might need a lot of refactoring to suit your needs
 
 ### Serving static files
@@ -196,6 +196,6 @@ Implement a simple REST API with Express framework:
    - match the filenames with the mock data
 1. Extra: Use [jsDoc](https://jsdoc.app/index.html) comments
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Optionally, you can write similar report in the `readme.md` (or other markdown) file of your project and submit a direct link to the file to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.

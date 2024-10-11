@@ -10,32 +10,76 @@ A note of [beeing dependent on 3rd party packages](https://dev.to/chaitanyasuvar
 
 ## Setting up the first project
 
-Prerequicities: Toolchain of the previous course installed.
+1. Prerequicities: Toolchain of the previous course installed.
+   - Visual Studio Code + Prettier & ESLint extensions
+   - Node.js & npm
+   - Git (Git bash preferred on Windows)
+   - Postman or similar API testing tool
+1. Create a new folder for your project.
+1. Open the project folder in your code editor.
+1. Open a terminal (command-line) in the project folder.
+1. Run `npm init` inside the project folder. The wizard needs an interactive shell, use terminal on MacOS/Linux or Git Bash/Powershell on Windows.
+1. Setup [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for code linting and formatting (Read more about the differences and roles of the tools on [LogRocket Blog](https://blog.logrocket.com/using-prettier-eslint-javascript-formatting/) and [ESLint blog](https://eslint.org/blog/2023/10/deprecating-formatting-rules/)).
 
-1. `npm init` wizard needs an interactive shell, so use VS Code terminal or Git Bash
-1. setup eslint: `npm init @eslint/config`, remember to select `node` environment
-   - √ How would you like to use ESLint? To check syntax, find problems, and enforce code style
-   - √ What type of modules does your project use? JavaScript modules (import/export)
-   - √ Which framework does your project use? none of these
-   - √ Does your project use TypeScript? No
-   - √ Where does your code run? Node
-   - √ How would you like to define a style for your project? Use a popular style guide
-   - √ Which style guide do you want to follow? Google
-   - √ What format do you want your config file to be in? JavaScript
-   - √ Would you like to install them now? Yes
-   - √ Which package manager do you want to use? npm
-1. install `nodemon` as a development dependency: `npm install --save-dev nodemon`
-1. review `package.json`, add a script for starting your app with nodemon and type property
+   - Install npm packages:
 
-   ```json
-   "type": "module",
-   "scripts": {
-    "dev": "nodemon src/index.js",
-    ...
+   ```sh
+   # --save-exact makes sure that everyone in the project gets the exact same version of Prettier.
+   npm install --save-dev --save-exact prettier
+   npm install --save-dev eslint @eslint/js eslint-config-prettier globals
    ```
 
-1. create a `.gitignore` file and add `node_modules` to it, keep it alway up to date
-1. create a `src/` folder and a file `index.js` in it
+   - Add `eslint.config.js` file with the following content:
+
+   ```js
+   import globals from 'globals';
+   import js from '@eslint/js';
+
+   export default [
+     {
+       languageOptions: {
+         ecmaVersion: 2021,
+         sourceType: 'module',
+         globals: {...globals.node},
+       },
+     },
+     js.configs.recommended,
+   ];
+   ```
+
+   - Add `.prettierrc.cjs` file with the following content:
+
+   ```js
+   // sample .prettierrc.cjs
+   module.exports = {
+     semi: true,
+     singleQuote: true,
+     bracketSpacing: false,
+     trailingComma: 'all',
+   };
+   ```
+
+1. Install `nodemon` as a development dependency: `npm install --save-dev nodemon`.
+   - a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+1. Review `package.json`, add a script for starting your app with nodemon, and add type property:
+
+   ```json
+   ...
+   "type": "module",
+   "scripts": {
+     "dev": "nodemon src/index.js",
+     ...
+   ```
+
+1. Initialize a git repository: `git init` and create a `.gitignore` file and add at least `node_modules` to it. Remember to keep the file always up to date when adding files you don't want to include version control!
+
+   ```gitignore
+   .vscode
+   node_modules
+   .DS_Store
+   ```
+
+1. Create a `src/` folder and add a file `index.js` in it
 
    ```js
    // index.js
@@ -44,7 +88,7 @@ Prerequicities: Toolchain of the previous course installed.
    const port = 3000;
 
    const server = http.createServer((req, res) => {
-     res.writeHead(200, { 'Content-Type': 'text/plain' });
+     res.writeHead(200, {'Content-Type': 'text/plain'});
      res.end('Welcome to my REST API!');
    });
 
@@ -53,7 +97,7 @@ Prerequicities: Toolchain of the previous course installed.
    });
    ```
 
-1. test your setup: `npm run dev`
+1. Test your setup: `npm run dev`
 
 `req` variable is an [request object](https://nodejs.org/api/http.html#class-httpclientrequest) containing information about the HTTP request that raised the event. e.g.:
 
@@ -71,13 +115,13 @@ Payload data (request body) can be [extracted manually](https://nodejs.org/en/do
 
 ### Simple example of REST API documentation
 
-| Endpoint      | Method | Description                                        | Request Body (Example)            | Response Body (Example)        | Status Codes                         |
-|---------------|--------|----------------------------------------------------|----------------------------------|--------------------------------|-------------------------------------|
-| `/items`      | GET    | Retrieve a list of all items                       | N/A                              | `[{ "id": 1, "name": "Item1" }, { "id": 2, "name": "Item2" }]` | `200 OK`, `404 Not Found`           |
-| `/items`      | POST   | Create a new item                                  | `{ "name": "New Item" }`         | `{ "id": 3, "name": "New Item" }` | `201 Created`, `400 Bad Request`    |
-| `/items/:id`  | GET    | Retrieve details of a specific item by its ID      | N/A                              | `{ "id": 1, "name": "Item1" }`  | `200 OK`, `404 Not Found`           |
-| `/items/:id`  | PUT    | Update details of a specific item by its ID        | `{ "name": "Updated Item" }`     | `{ "id": 1, "name": "Updated Item" }` | `200 OK`, `400 Bad Request`, `404 Not Found` |
-| `/items/:id`  | DELETE | Delete a specific item by its ID                   | N/A                              | N/A                            | `204 No Content`, `404 Not Found`    |
+| Endpoint     | Method | Description                                   | Request Body (Example)       | Response Body (Example)                                        | Status Codes                                 |
+| ------------ | ------ | --------------------------------------------- | ---------------------------- | -------------------------------------------------------------- | -------------------------------------------- |
+| `/items`     | GET    | Retrieve a list of all items                  | N/A                          | `[{ "id": 1, "name": "Item1" }, { "id": 2, "name": "Item2" }]` | `200 OK`, `404 Not Found`                    |
+| `/items`     | POST   | Create a new item                             | `{ "name": "New Item" }`     | `{ "id": 3, "name": "New Item" }`                              | `201 Created`, `400 Bad Request`             |
+| `/items/:id` | GET    | Retrieve details of a specific item by its ID | N/A                          | `{ "id": 1, "name": "Item1" }`                                 | `200 OK`, `404 Not Found`                    |
+| `/items/:id` | PUT    | Update details of a specific item by its ID   | `{ "name": "Updated Item" }` | `{ "id": 1, "name": "Updated Item" }`                          | `200 OK`, `400 Bad Request`, `404 Not Found` |
+| `/items/:id` | DELETE | Delete a specific item by its ID              | N/A                          | N/A                                                            | `204 No Content`, `404 Not Found`            |
 
 - Endpoint: The URL where the API can be accessed.
 - Method: The HTTP verb/method used to interact with the endpoint.
@@ -132,6 +176,6 @@ Remember that following good coding practices makes your app a lot more easier t
 - Line length: avoid writing horizontally long lines of code
 - Avoid large code files, split to smaller modules
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Optionally, you can write similar report in the `readme.md` (or other markdown) file of your project and submit a direct link to the file to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.

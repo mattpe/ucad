@@ -83,21 +83,20 @@ sequenceDiagram
 
 Key concepts of REST:
 
-- **Statelessness**: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not retain any client state between requests. This makes it easier to scale, as there's no session information to manage between requests.
+- **Stateless Communication**: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not retain any client state between requests. This makes it easier to scale, as there's no session information to manage between requests.
 - **Client-Server**: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server is responsible for processing requests, managing data, and executing most of the business logic.
-- **Cacheability**: Responses from the server can be labeled as cacheable or non-cacheable. When a response is cacheable, clients can reuse it for equivalent requests in the future, leading to better performance and reduced server load.
-- **Uniform Interface**: This is one of the central tenets of REST. It simplifies and decouples the architecture, allowing each part to evolve independently. Key constraints that define this uniform interface include:
-- **Resource Identification**: Each resource (like a user, product, etc.) is identified by a unique URI (Uniform Resource Identifier). e.g. `https://example.com/resource/id`
-- **Resource Manipulation through Representations**: Clients interact with resources by getting and modifying their representations (usually in formats like **JSON** or XML).
-- **Self-descriptive Messages**: Each message contains enough information about how to process the message (e.g., using HTTP methods and status codes).
-- **Standard Methods**: In the context of web services and APIs, REST usually relies on standard HTTP methods:
+- **Cacheability**: Responses from the server can be labeled as cacheable or non-cacheable. When a response is cacheable, clients can reuse it for equivalent requests in the future, leading to better performance and reduced server load. Responses from the server should clearly indicate their cacheability to help clients understand when a resource's representation is fresh and when it needs to be re-requested.
+- **Uniform Interface** simplifies and decouples the architecture, allowing each part to evolve independently. Constraints that define this uniform interface include:
+  - **Resource Identification**: Each resource (like a user, product, etc.) is identified by a unique URI (Uniform Resource Identifier). e.g. `https://example.com/resource/id`
+  - **Resource Manipulation through Representations**: Clients interact with resources by getting and modifying their representations (usually in formats like **JSON** or XML).
+  - **Self-descriptive Messages**: Each message contains enough information about how to process the message (e.g., using HTTP methods and status codes).
+- **Standard HTTP Methods**: In the context of web services and APIs, REST usually relies on standard HTTP methods:
   - GET: Retrieve a resource or list of resources.
   - POST: Create a new resource.
   - PUT: Update a resource.
   - DELETE: Remove a resource.
   - PATCH: Apply partial modifications to a resource.
-- **Status Codes:** Each response is served with an appropriate [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-- **Stateless Communication**: Responses from the server should clearly indicate their cacheability to help clients understand when a resource's representation is fresh and when it needs to be re-requested.
+- **HTTP Status Codes:** Each response is served with an appropriate [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
 REST APIs are popular due to their simplicity, scalability, and performance. When an API adheres to these principles, it's often referred to as a "RESTful" API.
 
@@ -108,8 +107,8 @@ Programming language + application framework + database + runtime environment (s
 - Programming language is a tool for writing code, specifying algorithms, and instructing a computer.
 - Framework is a higher-level structural foundation that provides guidelines, pre-written code, and tools for building applications in a specific domain. Developers often use programming languages within the context of a framework to streamline the development process and adhere to best practices for a particular type of application, such as web development or mobile app development.
 - Running environment, often referred to as the "runtime environment" or simply the "runtime," is the software and hardware infrastructure where the server-side code of an application executes. This environment provides the necessary resources and services for the server-side code to run, handle requests, process data, and generate responses.
-- All permanent data used by the application itself or saved by the users of the application is stored in the database
-- Relational databases like MySQL, PostgreSQL, and NoSQL databases like MongoDB, Cassandra, and Redis are commonly used for storing and retrieving data in web applications.
+- All permanent data used by the application itself or saved by the users of the application is stored in the database.
+  - Relational databases like MySQL, MariaDB, PostgreSQL, and/or NoSQL databases like MongoDB, Cassandra, and Redis are commonly used for storing and retrieving persistent data in web applications.
 
 ### Python
 
@@ -121,18 +120,18 @@ Programming language + application framework + database + runtime environment (s
 
 - PHP is a server-side scripting language designed specifically for web development. It powers a significant portion of the web.
 - Frameworks like Laravel and Symfony provide modern tools and patterns for PHP web application development.
-- Popular blog/website application Wordpress is written in PHP
-- Most web hotels and e.g. <users.metropolia.fi> home page server support PHP runtime by default
+- Most web hotels and e.g. <users.metropolia.fi> home page server support PHP runtime by default.
+- For example popular blog/website application Wordpress is written in PHP
 
 ### Java
 
 - Java is a widely used programming language for building robust and scalable web applications.
-- Spring Boot is a framework that simplifies Java web development by providing a set of conventions and tools for creating production-ready applications.
+- For example Spring Boot is a framework that simplifies Java web development by providing a set of conventions and tools for creating production-ready applications.
 
 ### ASP.NET
 
-- ASP.NET is an open-source, server-side web-application framework developed by Microsoft
-- Supports .NET languages like C#
+- ASP.NET is an open-source, server-side web-application framework developed by Microsoft.
+- Supports .NET languages like C#.
 
 ### Ruby on Rails
 
@@ -141,10 +140,9 @@ Ruby on Rails, often referred to as Rails, is a web application framework writte
 ### JavaScript and Node.js
 
 - JavaScript is a high-level, often just-in-time compiled language that follows the [ECMAScript standard](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
-- The ECMAScript standard does not include any input/output (I/O), such as networking, storage, text, or graphics. In practice, the web browser or other runtime system provides APIs for I/O.
+- The ECMAScript standard does not include any input/output (I/O), such as networking, storage, text, or graphics. In practice, the web browser or other runtime system provides APIs for I/O (on the client-side).
 - Node.js is a popular runtime environment that allows developers to write server-side code in JavaScript. It is known for its non-blocking, event-driven architecture, making it well-suited for building scalable and high-performance web applications.
 - Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications. It is often used for creating RESTful APIs.
-- Recap: [Node.js](https://github.com/ilkkamtk/web-ohjelmoinnin-perusteet/blob/main/node.md) & [npm](https://github.com/ilkkamtk/web-ohjelmoinnin-perusteet/blob/main/npm.md)
 
 ---
 

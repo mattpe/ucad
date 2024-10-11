@@ -1,6 +1,6 @@
 # Relational Databases
 
-(recap from 1st year)
+(short recap from 1st year)
 
 ## TOC
 
