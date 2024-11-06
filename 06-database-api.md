@@ -98,11 +98,79 @@ Tags ||--o{ MediaItemTags : tags
 
 Normalization involves applying a series of rules to a database design, known as normal forms:
 
-- **First Normal Form (1NF)**: Each column in a table should contain atomic, indivisible data, and there should be no repeating groups.
+- **First Normal Form (1NF)**: Each column in a table should contain atomic, indivisible data, and there should be no repeating groups (like lists or data series).
 - **Second Normal Form (2NF)**: The table is in 1NF, and all the non-primary-key columns are fully functionally dependent on the primary key.
 - **Third Normal Form (3NF)**: The table is in 2NF, and all its columns are not only fully functionally dependent on the primary key but also non-transitively dependent. This means that no non-primary-key column should be dependent on another non-primary-key column.
 
 There are even higher normal forms, like the Fourth Normal Form (4NF), which deals with multi-valued dependencies, and the Fifth Normal Form (5NF), which deals with joins, but these are less commonly applied in practical database design. In most cases, 3NF is sufficient and provides a a good balance between normalization benefits and performance considerations.
+
+### Example: Database of Students and Their Courses
+
+Suppose we have a table with the following fields:
+
+- **Student_ID** – unique identifier for each student
+- **Student_Name** – the name of the student
+- **Course** – name of the course
+- **Instructor** – instructor of the course
+
+The table data might look like this:
+
+| Student_ID | Student_Name | Course        | Instructor  |
+|------------|--------------|---------------|-------------|
+| 1          | Lisa         | Mathematics   | Smith       |
+| 2          | John         | Physics       | Johnson     |
+| 1          | Lisa         | Physics       | Johnson     |
+| 3          | Anna         | Mathematics   | Smith       |
+| 2          | John         | Mathematics   | Smith       |
+
+Now, let’s analyze this table based on the normal forms.
+
+### 1st Normal Form (1NF)
+
+1NF requires that all fields contain only atomic (single) values, with no lists or arrays. In this table, this rule is already met since each field contains only a single value.
+
+**1NF Table:** The table remains the same, as it already satisfies 1NF.
+
+### 2nd Normal Form (2NF)
+
+2NF requires that every non-key field depends on the whole primary key, not just part of it. In our example, information about the instructor depends on the course, not on the student, creating redundant information.
+
+To solve this, we can split the table into two separate tables, eliminating dependencies that only relate to part of the key.
+
+**Example of Tables in 2NF:**
+
+**Students Table:**
+
+| Student_ID | Student_Name |
+|------------|--------------|
+| 1          | Lisa         |
+| 2          | John         |
+| 3          | Anna         |
+
+**Courses Table:**
+
+| Course       | Instructor  |
+|--------------|-------------|
+| Mathematics  | Smith       |
+| Physics      | Johnson     |
+
+**Student_Courses Table (link table):**
+
+| Student_ID | Course       |
+|------------|--------------|
+| 1          | Mathematics  |
+| 2          | Physics      |
+| 1          | Physics      |
+| 3          | Mathematics  |
+| 2          | Mathematics  |
+
+This structure ensures that course information is stored separately from student information, so any change in the instructor’s details will update consistently across all students.
+
+### 3rd Normal Form (3NF)
+
+3NF requires that non-key fields depend only on the primary key and not on other non-key fields (eliminating transitive dependencies). In this example, both tables are already in 3NF because there are no transitive dependencies.
+
+**Final 3NF Tables:** The three tables from 2NF remain the same.
 
 ## Example database setup and some sample data
 
