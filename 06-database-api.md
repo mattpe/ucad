@@ -65,13 +65,18 @@ Table MediaItemTags {
   tag_id INT PK, FK
 }
 
+Table Follows {
+  follower_user_id INT PK, FK
+  followed_user_id INT PK, FK
+}
+
 Users ||--o{ MediaItems : owns
 Users ||--o{ Comments : comments
 Users ||--o{ Likes : likes
 Users ||--o{ Ratings : rates
 Users ||--|{ UserLevels : has_a
-
-UserLevels ||--o{ Users : belongs_to
+Users |o--o{ Follows : is_follower
+Follows }o--o| Users : is_followed
 
 MediaItems ||--o{ Comments : has
 MediaItems ||--o{ Likes : has
@@ -86,6 +91,7 @@ Tags ||--o{ MediaItemTags : tags
 - Media items can have multiple comments, likes, and ratings.
 - Each user belongs to one user level (belongs_to relationship) but each user level can be associated with multiple users.
 - Media items can be associated with multiple tags via the MediaItemTags table (tagged_with relationship). Each tag can tag multiple media items.
+- Users can follow other users (is_follow* relationships).
 
 ## Database normalization
 
