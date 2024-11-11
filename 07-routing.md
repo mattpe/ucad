@@ -197,7 +197,7 @@ const mediaItems = [
     created_at: '2023-10-12T06:59:05.000Z',
   },
   {
-    media_id: 9590,
+    media_id: 9593,
     filename: '60ac.jpg',
     filesize: 23829,
     title: 'Basement',
@@ -293,26 +293,28 @@ const postMedia = async (req, res) => {
 export {postMedia};
 ```
 
-Testing upload with VSCode REST Client example:
+Testing upload with VSCode REST Client:
+
+Image file (`test-cat.png` in this example) must be in the same folder as the `.http` file.
 
 ```http
 POST http://localhost:3000/api/media
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: multipart/form-data; boundary=----Boundary
 
-------WebKitFormBoundary7MA4YWxkTrZu0gW
+------Boundary
 Content-Disposition: form-data; name="title"
 
-New media title
-------WebKitFormBoundary7MA4YWxkTrZu0gW
+New cat image
+------Boundary
 Content-Disposition: form-data; name="user_id"
 
-1
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="image.jpg"
-Content-Type: image/jpeg
+21
+------Boundary
+Content-Disposition: form-data; name="file"; filename="image.png"
+Content-Type: image/png
 
-< ./image.jpg
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
+< ./test-cat.png
+------Boundary--
 ```
 
 ## Database connection in Express
