@@ -111,7 +111,7 @@ One example of well-made API docs: [Stripe API Reference](https://stripe.com/doc
 1. Add `docs/` folder to `.gitignore` file
 1. Browse to `http://localhost:3000/docs/` to see the generated documentation
 
-Example annotations for `auth-router.mjs`:
+Example annotations for `auth-router.js`:
 
 ```js
 const authRouter = express.Router();

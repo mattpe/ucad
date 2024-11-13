@@ -133,7 +133,7 @@ In web applications, authentication is typically done by verifying a username an
    - use a long random string, e.g. from [random.org](https://www.random.org/strings/)
    - or use the `crypto` module to generate a random string
 1. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
-   - add a new route handler to `routes/auth-router.mjs`, controller method to `controllers/auth-controller.mjs`, and use the user model to query the database or create a new model for authentication.
+   - add a new route handler to `routes/auth-router.js`, controller method to `controllers/auth-controller.js`, and use the user model to query the database or create a new model for authentication.
 1. In the model implement a method for verifying the username and password combination and returning the user object if found:
 
    ```js
@@ -150,7 +150,7 @@ In web applications, authentication is typically done by verifying a username an
 
     ```js
     import jwt from 'jsonwebtoken';
-    import {login} from '../models/user-model.mjs';
+    import {login} from '../models/user-model.js';
     import 'dotenv/config';
 
     const postLogin = async (req, res) => {
@@ -168,7 +168,7 @@ In web applications, authentication is typically done by verifying a username an
 
     - if the user is found, `jsonwebtoken` is used to generate a JWT token and then token is sent back to the client along with the user object.
 
-1. Create a middleware for handling requests to endpoints where authentication is needed `middlewares/authentication.mjs`
+1. Create a middleware for handling requests to endpoints where authentication is needed `middlewares/authentication.js`
 
     ```js
     import jwt from 'jsonwebtoken';
@@ -198,8 +198,8 @@ In web applications, authentication is typically done by verifying a username an
     ```js
     // router:
     ...
-    import {getMe, postLogin} from '../controllers/auth-controller.mjs';
-    import {authenticateToken} from '../middlewares/authentication.mjs';
+    import {getMe, postLogin} from '../controllers/auth-controller.js';
+    import {authenticateToken} from '../middlewares/authentication.js';
     ...
     authRouter.route('/me').get(authenticateToken, getMe);
     ...

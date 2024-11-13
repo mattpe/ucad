@@ -52,7 +52,7 @@ Input data validation in web applications is a critical process that ensures the
   - What about a rule like: "_confirm_password_: required, must match password"? - not needed on server-side, important on client-side
 
 1. Install `express-validator`
-1. Example database query function in _user-model.mjs_:
+1. Example database query function in _user-model.js_:
 
     ```js
     /**
@@ -98,7 +98,7 @@ Input data validation in web applications is a critical process that ensures the
 
     ```js
     import {validationResult} from 'express-validator';
-    import {addUser} from '../models/user-model.mjs';
+    import {addUser} from '../models/user-model.js';
 
     const postUser = async (req, res) => {
       // validation errors can be retrieved from the request object (added by express-validator middleware)
@@ -124,7 +124,7 @@ Input data validation in web applications is a critical process that ensures the
   - _file_: required, max. 10 MB, only images or videos allowed
     - file needs to be validated with Multer's [fileFilter](https://github.com/expressjs/multer#filefilter)
 
-1. Use fileFilter to validate the file itself, multer can be configured in a separate file, e.g. _middlewares/upload.mjs_:
+1. Use fileFilter to validate the file itself, multer can be configured in a separate file, e.g. _middlewares/upload.js_:
 
     ```js
     import multer from 'multer';
@@ -153,7 +153,7 @@ Input data validation in web applications is a critical process that ensures the
     ```js
     ...
     import {body} from 'express-validator';
-    import upload from '../middlewares/upload.mjs';
+    import upload from '../middlewares/upload.js';
     ...
     mediaRouter
       .route('/')
@@ -202,7 +202,7 @@ Input data validation in web applications is a critical process that ensures the
   - If the error handler middleware is called, the next middleware in the chain is skipped
   - Error handler middleware should be the last middleware in the chain
 
-1. Add error handler middleware functions to _middlewares/middlewares.mjs_ (or create a new file _middlewares/error-handler.mjs_):
+1. Add error handler middleware functions to _middlewares/middlewares.js_ (or create a new file _middlewares/error-handler.js_):
 
     ```js
     ...
@@ -245,9 +245,9 @@ Input data validation in web applications is a critical process that ensures the
    - Use `next()` to pass the error to the error handler middleware, some examples:
 
     ```js
-    // user-controller.mjs
+    // user-controller.js
     import {validationResult} from 'express-validator';
-    import {addUser} from '../models/user-model.mjs';
+    import {addUser} from '../models/user-model.js';
 
     const postUser = async (req, res, next) => {
       // validation errors can be retrieved from the request object (added by express-validator middleware)
@@ -267,7 +267,7 @@ Input data validation in web applications is a critical process that ensures the
     ```
 
     ```js
-    // media-controller.mjs
+    // media-controller.js
     const postMedia = async (req, res, next) => {
       // check if file is rejected by multer
       if (!req.file) {
@@ -297,7 +297,7 @@ Input data validation in web applications is a critical process that ensures the
     ...
     ```
 
-   - Modify _middlewares/upload.mjs_ to pass the error to the error handler middleware
+   - Modify _middlewares/upload.js_ to pass the error to the error handler middleware
 
     ```js
     // multer configuration

@@ -104,7 +104,7 @@ _src/index.js:_
 
 ```js
 ...
-import mediaRouter from './routes/media-router.mjs';
+import mediaRouter from './routes/media-router.js';
 
 ...
 
@@ -115,7 +115,7 @@ app.use('/api/media', mediaRouter);
 
 ```
 
-_src/routes/media-router.mjs:_
+_src/routes/media-router.js:_
 
 ```js
 import express from 'express';
@@ -125,7 +125,7 @@ import {
   postMedia,
   putMedia,
   deleteMedia,
-} from '../controllers/media-controller.mjs';
+} from '../controllers/media-controller.js';
 
 const mediaRouter = express.Router();
 
@@ -139,10 +139,10 @@ mediaRouter.route('/:id')
 export default mediaRouter;
 ```
 
-_src/controllers/media-controller.mjs:_
+_src/controllers/media-controller.js:_
 
 ```js
-import {addMedia, findMediaById, listAllMedia} from "../models/media-model.mjs";
+import {addMedia, findMediaById, listAllMedia} from "../models/media-model.js";
 
 const getMedia = (req, res) => {
   res.json(listAllMedia());
@@ -181,7 +181,7 @@ const deleteMedia = (req, res) => {
 export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
 ```
 
-_src/models/media-model.mjs:_
+_src/models/media-model.js:_
 
 ```js
 // mock data
@@ -263,14 +263,14 @@ Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en
 // router:
 ....
 import multer from 'multer';
-import {postMedia} from '../controllers/media-controller.mjs';
+import {postMedia} from '../controllers/media-controller.js';
 ....
 mediaRouter.route('/')
   .post(upload.single('file'), postMedia);
 ...
 
 // controller:
-import {addMedia} from "../models/media-model.mjs";
+import {addMedia} from "../models/media-model.js";
 ...
 const postMedia = async (req, res) => {
   const {filename, size, mimetype} = req.file;
@@ -340,7 +340,7 @@ Content-Type: image/png
     ```
 
 1. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
-1. Create a new file `src/utils/database.mjs` and add the following code to it:
+1. Create a new file `src/utils/database.js` and add the following code to it:
 
     ```js
     import mysql from 'mysql2';
@@ -363,12 +363,12 @@ Content-Type: image/png
 
 JavaScript variables in SQL queries should be handled using [prepared statements](https://github.com/sidorares/node-mysql2#using-prepared-statements) to prevent SQL injection attacks.
 
-_media-model.mjs:_
+_media-model.js:_
 
 ```js
 // Note: db functions are async and must be called with await from the controller
 // How to handle errors in controller?
-import promisePool from '../utils/database.mjs';
+import promisePool from '../utils/database.js';
 
 const listAllMedia = async () => {
   try {
@@ -410,10 +410,10 @@ const addMedia = async (media) => {
 export {listAllMedia, findMediaById, addMedia};
 ```
 
-_media-controller.mjs:_
+_media-controller.js:_
 
 ```js
-import {addMedia, findMediaById, listAllMedia} from "../models/media-model.mjs";
+import {addMedia, findMediaById, listAllMedia} from "../models/media-model.js";
 
 const getMedia = async (req, res) => {
   const result = await listAllMedia();
