@@ -16,7 +16,7 @@ Express package is saved as a dependency in the project's `package.json` file.
 
 ## Hello world web app
 
-Node.js using built-in http module:
+Node.js using built-in `http` module:
 
 ```js
 import http from 'http';
