@@ -27,17 +27,17 @@ The choice of the running environment components depends on factors like the typ
 
 Cloud computing models provide different levels of control, flexibility, and management. The three primary models are:
 
-1. Software as a Service (SaaS)
+1. **Software as a Service (SaaS)**
    - SaaS delivers software applications over the internet, on a subscription basis. The applications are hosted and managed by the service provider.
    - End-users can use the software but don't manage the infrastructure or platform running the application.
    - Examples: Google Workspace, Microsoft Office 365, Salesforce, Dropbox.
    - Ideal for businesses that want ready-to-use applications without worrying about installation, maintenance, or infrastructure.
-2. Platform as a Service (PaaS)
+2. **Platform as a Service (PaaS)**
    - PaaS provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
    - Users manage applications and data, while the provider manages runtime, middleware, operating system, virtualization, servers, storage, and networking.
    - Examples: Heroku, Google App Engine, Microsoft Azure App Services.
    - Suitable for developers who want to focus on their software and data without dealing with servers, storage, and networking.
-3. Infrastructure as a Service (IaaS)
+3. *Infrastructure as a Service (IaaS)*
    - IaaS provides fundamental computing resources such as virtual machines, storage, and networks over the internet. Users have control over their infrastructure, similar to traditional physical data centers, but it's available over the cloud.
    - Users have control over operating systems, storage, deployed applications, and possibly limited control of select networking components (e.g., host firewalls).
    - Examples: Amazon Web Services (AWS), Microsoft Azure, Google Compute Engine (GCE).
@@ -51,7 +51,7 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
 
 ### Materials & links
 
-Browse, read, watch & study:
+#### Microsoft Azure
 
 - [Introduction to Azure fundamentals](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-fundamentals/)
 - [Get started with Azure](https://azure.microsoft.com/en-us/get-started/)
@@ -60,10 +60,10 @@ Browse, read, watch & study:
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
 - [Azure network security group](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
 
-Help for Linux usage:
+#### Help for Basic Linux usage
 
 - [Using Linux command line](https://ubuntu.com/tutorials/command-line-for-beginners)
-- [The Beginner’s Guide to Nano, the Linux Command-Line Text Editor](https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
+- [The Beginner’s Guide to Nano, the Linux Command-Line Text Editor](https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 - [Ubuntu package management](https://ubuntu.com/server/docs/package-management)
 - [Ubuntu firewall](https://ubuntu.com/server/docs/security-firewall)
 
@@ -80,8 +80,9 @@ Help for Linux usage:
 
    ![Basic example setup](assets/azure-vm-settings.png)
 
-   - Finally hit the _CREATE_ button and after successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_.
-   - Note: VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
+   - Finally, hit the _CREATE_ button and wait for the VM deployment to finish.
+   - After successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_ for your public IP address.
+   - _Note:_ VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
 
 1. Use SSH connection for managing your VM (`ssh username@PUBLIC_IP/YOUR_DOMAIN_NAME` in terminal/git bash or use e.g. [Putty](https://www.putty.org/))
 
@@ -111,7 +112,7 @@ Help for Linux usage:
 2. Check configuration files `/etc/apache2/` & start `sudo systemctl start apache2`
 3. Add write permissions to your user account for the webroot folder `/var/www/html`: `sudo chown <MYUSERNAME>.<GROUP> /var/www/html`
 4. Copy your UI files to the webroot using e.g. scp/filezilla/winscp or clone/pull from GitHub
-5. Test with browser <http://my.server.ipaddress.or.hostname/>
+5. Test with browser <http://my.server.ipaddress.or.hostname>
 6. Enable HTTPS connections using Let's encrypt & Certbot
 
    - [Let’s Encrypt is a free, automated, and open certificate authority (CA)](https://letsencrypt.org/about/)
@@ -127,7 +128,7 @@ Help for Linux usage:
    # Answer the questions when prompted, you need to provide your server DNS-name, something like <my.website>.cloudapp.azure.com
    ```
 
-   - To confirm that your site is set up properly, visit <https://yourwebsite.cloudapp.azure.com/> in your browser and look for the lock icon in the URL bar
+   - To confirm that your site is set up properly, visit <https://my.server.hostname.cloudapp.azure.com/> in your browser and look for the lock icon in the URL bar
 
 #### MariaDB database server
 
@@ -144,7 +145,7 @@ Help for Linux usage:
    sudo systemctl enable mariadb
    ```
 
-1. Secure it by running the sript (optional in our one server system):
+1. Installation can be secured using common steps by running the included script (this is not mandatory in our one server system):
 
    ```console
    mysql_secure_installation
@@ -152,7 +153,7 @@ Help for Linux usage:
 
    Note: In Ubuntu you don't necessary need root password at all. Just use sudo for gaining root access: `sudo mysql -u root`. Skip that step when prompted.
 
-1. Connect to your database server as a root user: `sudo mysql -u root` and create a database and a user with privileges on it:
+1. Connect to your database server as a root user: `sudo mysql -u root` and create a database and a user with privileges on it (replace `myusername`, `mypassword` with your own values):
 
    ```sql
    CREATE DATABASE MediaSharingApp;
@@ -161,9 +162,11 @@ Help for Linux usage:
    FLUSH PRIVILEGES;
    ```
 
-   (in case you would need outside access (e.g. during project, separate database server from app server), replace `localhost` with `'%'` in the two GRANT queries and remember that the settings you did with `mysql_secure_installation` may prevent this).
+   _Note:_ in case you need outside access to the database (e.g. during project, if you separate database server and app server), replace `localhost` with `'%'` in the two _GRANT_ queries and remember that the settings you did with `mysql_secure_installation` may prevent this.
 
-1. Download the [media-db.sql](./assets/media-db.sql) SQL script. Can be done directly from server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url) or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp media-db.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
+1. Download the example [media-db.sql](./assets/media-db.sql) SQL script (or use your own).
+   - This can be done directly from the server using curl: `curl -O <FILE-URL>` (note: click the _Raw_ button on script's GitHub page in order to get a working url)
+   - or downloaded at first to your local computer and then uploaded with any SCP file transfer tool to the server. (e.g. using command line secure copy tool **scp**: `scp media-db.sql <YOUR-USERNAME>@<YOUR-SERVE-NAME/IP>:`)
 1. Import the tables and insert the data: `mysql -u myusername -p < media-db.sql` or `sudo mysql < media-db.sql`
 1. Eventually check that the user account works and the data is there: `mysql -u myusername -p`
 
@@ -245,18 +248,22 @@ Help for Linux usage:
    1. go to the app directory: `cd <my-app>`
    1. if you cloned the repo, check that you are in the right branch (checkout if not)
    1. install your dependencies: `npm install --production`
-   1. create/edit `.env` file with your db credentials (you set in [MariaDB](#mariadb-database-server)):
+   1. create/edit `.env` file with your db credentials (you set in [MariaDB](#mariadb-database-server)) and other environment variables:
 
       ```conf
       DB_HOST=127.0.0.1
       DB_USER=<your-db-user>
       DB_PASSWORD=<your-db-user_password>
       DB_NAME=<your-db-name>
+      JWT_SECRET=somesecuresecrethere
+      JWT_EXPIRES_IN=1d
+      # and other settings that you may have in your app
+      ...
       ```
 
    1. to test start your application: `node src/index.js` or `npm start`
    1. to kill the app, use `CTRL+C`, or if no more hanging in your terminal session, try `pkill node` or use `top`
-   1. test: open a browser and visit `https://<your-ip-address-or-hostname>/app/cat`
+   1. test: open a browser and visit `https://<your-ip-address-or-hostname>/api/<endpoint>`
    1. to have your app running "forever" as a background service, featuring automatic restart on crash, use e.g. [pm2](https://pm2.keymetrics.io/):
 
       ```bash
@@ -268,19 +275,23 @@ Help for Linux usage:
    1. to check for possible errors log files can be accessed with `pm2 logs`
    1. restart app after code updates: `pm2 restart <app-name>`
    1. if you want that the app automatically reload on change (e.g. on next `git pull`), use the `--watch` flag.
-   1. (optional) "pure" linux option could be using [systemd](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for creating a system process.
+   1. (optional) other "pure" linux option for managing the service would be using [systemd](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for creating a system process.
 
-#### Static UI files (Front-end)
+#### Publishing Front-end application (Client)
 
-Front-end HTML/CSS/JS files can be served from any web server. **Easiest solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues.
+Front-end HTML/CSS/JS files can be served from any web server. **Easiest solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues and the apache proxy setup done earlier works out-of-the-box. For example when using Vite for front-end development:
 
-But you can use the Apache server directly as well:
+1. Build your Vite app 
+   - **Note:** Remember to update your API connections (`fetch()` function calls) in your client code to use the real server's URL address instead of `localhost:3000`!
+1. Copy all contents of `dist/` folder to you node application's `public/` folder on the server.
+1. Test: open a browser and visit `https://<your-server-address>/` and `https://<your-server-address>/api/`
+
+**If** you want to use the Apache directly as a web server for static files:
 
 1. Change the owner of the web root folder such that no `sudo` permissions are needed when you edit the contents of the folder: `sudo chown <USERNAME>.<USERNAME> /var/www/html`
-1. Change the server url value in all front-end JS files: `http://localhost:3000` -> `https://your.server.azure.com/app`
 1. Upload/copy/clone your front-end files to the server's `/var/www/html/` directory
-1. Test: open a browser and visit `https://<your-ip-address-or-hostname>/`
-
+1. Update Apache config by enabling `DocumentRoot` and modifying proxy settings for Node app to use the sub url path version
+1. Test: open a browser and visit `https://<your-server-address>/` and `https://<your-server-address>/api/`
 Some simple front-end examples how to access the REST API are found [here](./assets/example-ui/).
 
 #### Cross-Origin Resource Sharing (CORS)
