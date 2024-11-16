@@ -103,9 +103,17 @@ Reading:
 - [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 - [OWASP NodeJS Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html)
 
-### Password Hashing
+### Password Security
 
-- Read: [Salted Password Hashing - Doing it Right](https://crackstation.net/hashing-security.htm)
+Reading:
+
+- [NIST Password Guidelines 2024](https://www.auditboard.com/blog/nist-password-guidelines/)
+- [Salted Password Hashing - Doing it Right](https://crackstation.net/hashing-security.htm)
+- xkcd comic classics: [Password Strength](https://xkcd.com/936/), [Password Reuse](https://xkcd.com/792/)
+- [How long it takes to crack a password?](https://www.hivesystems.com/password)
+- [About AI password cracking](https://www.rd.com/article/ai-password-cracking/)
+
+### Password Hashing in practice
 
 1. Install [bcryptjs](https://www.npmjs.com/package/bcryptjs): `npm i bcryptjs` ([bcrypt](https://www.npmjs.com/package/bcrypt) is another option but it has more dependencies)
 1. Update user creation to use bcrypt and implement password hashing (asynchronously)
