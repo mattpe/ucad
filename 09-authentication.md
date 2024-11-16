@@ -126,7 +126,7 @@ Express is a minimalistic framework that does not provide any built-in mechanism
 - **Authentication** is the process of verifying the identity of a user.
 - **Authorization** is the process of verifying that the user has access to the requested resource.
 
-In web applications, authentication is typically done by verifying a username and password combination. Authorization is typically done by checking the user's role or permissions.
+In web applications, authentication is typically done by verifying a username and password combination. Authorization is typically done by checking the user's role or permissions for the requested resource.
 
 1. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 1. Generate a secret key for signing the tokens and store it in the `.env` file: `JWT_SECRET=...`
@@ -134,11 +134,11 @@ In web applications, authentication is typically done by verifying a username an
    - or use the `crypto` module to generate a random string
 1. Create a route `POST /api/auth/login` that accepts a username and password in the request body.
    - add a new route handler to `routes/auth-router.js`, controller method to `controllers/auth-controller.js`, and use the user model to query the database or create a new model for authentication.
-1. In the model implement a method for verifying the username and password combination and returning the user object if found:
+1. In the _model_ implement a method for verifying the username and password combination and returning the user object if found:
 
    ```js
    ...
-   const login = async (user) => {
+   const selectUserByUsernameAndPassword = async (user) => {
      try {
        const sql = `SELECT user_id, username, email, user_level_id
                  FROM Users WHERE username = ? AND password = ?`;
@@ -150,7 +150,7 @@ In web applications, authentication is typically done by verifying a username an
 
     ```js
     import jwt from 'jsonwebtoken';
-    import {login} from '../models/user-model.js';
+    import {selectUserByUsernameAndPassword} from '../models/user-model.js';
     import 'dotenv/config';
 
     const postLogin = async (req, res) => {
