@@ -478,7 +478,7 @@ export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
 1. Continue your existing Express app and create a branch `express-db`
 1. Implement MVC model (file or feature based project structure, your choice) (max 3 p.)
    - Convert your existing API resources (`/api/media` and `/api/users`) to use the MVC model
-   - Use react.Router to modularize your routes for separate endpoints
+   - Use express.Router to modularize your routes for separate endpoints
    - Connect to the database (mysql2) and use appropriate SQL statements in the data models
    - Use the previous week's example database instead of mock data
    - Implement all of the following endpoints:
