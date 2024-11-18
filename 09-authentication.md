@@ -11,8 +11,8 @@ Choosing the right method for maintaining state depends on the specific requirem
 - Small pieces of data stored on the client's browser. Cookies are sent back to the server with every HTTP request.
 - Cookies store variables as name and value pairs, plus additional information such as expiration time and the name of web site where the cookie came form.
 - By default web site can modify only it's own cookies
-Use Cases: Remembering user preferences, authentication tokens, tracking sessions.
-Limitations: Size is limited (typically 4KB), and they can pose security and privacy concerns if not handled correctly.
+- Use Cases: Remembering user preferences, authentication tokens, tracking sessions.
+- Limitations: Size is limited (typically 4KB), and they can pose security and privacy concerns if not handled correctly.
 
 ```mermaid
 sequenceDiagram
