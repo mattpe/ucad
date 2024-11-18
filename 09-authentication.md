@@ -155,7 +155,7 @@ In web applications, authentication is typically done by verifying a username an
 
     const postLogin = async (req, res) => {
       console.log('postLogin', req.body);
-      const user = await login(req.body);
+      const user = await selectUserByUsernameAndPassword(req.body);
       if (user) {
         const token = jwt.sign(user, process.env.JWT_SECRET, {expiresIn: '24h'});
         res.json({...user, token});
