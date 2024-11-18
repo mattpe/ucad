@@ -249,7 +249,7 @@ In web applications, authentication is typically done by verifying a username an
 1. Implement user authentication to your app (1 p.)
    - Add endpoint `POST /api/auth/login`
    - Use JWT for authentication
-   - Continue adapting MVC pattern, use react.Router to modularize your routes for separate endpoints
+   - Continue adapting MVC pattern, use express.Router to modularize your routes for separate endpoints
 1. Implement authorization for protected routes, e.g.: (max. 2 p.)
    - `PUT /api/media/:id` - only file owner can update media items
    - `DELETE /api/media/:id` - only file owner can delete media item
