@@ -183,7 +183,7 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
 
 ![Apache reverse proxy](./assets/apache-node-proxy.png)
 
-1. Install _node.js_ and _npm_  from [nodesource package repository](https://github.com/nodesource/distributions#ubuntu-versions) (read e.g. [some instructions](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)):
+1. Install _node.js_ and _npm_  from [nodesource package repository](https://github.com/nodesource/distributions#ubuntu-versions) (follow instructions there if following is not working):
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
@@ -225,19 +225,20 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
       </VirtualHost>
       ```
 
-1. When working with Ubuntu 22.04 default installation you need to enable modules `proxy` and `proxy_http` by using command `sudo a2enmod <MODULE-NAME>` and restart the web server:
+1. When working with Ubuntu 24.04 default installation you need to enable modules `proxy` and `proxy_http` by using command `sudo a2enmod <MODULE-NAME>` and restart the web server:
 
    ```bash
    sudo a2enmod proxy proxy_http
    sudo systemctl restart apache2
    ```
 
-1. Setup Git and connect to your remote repository
+1. Setup Git to connect to your remote repository
 
-   1. [Install Git on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-22-04)
-   1. [Generate a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-   1. [Add SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-   1. [Test connection](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
+   1. Test than `git` command works, if not install it: `sudo apt install git`
+   1. If your Github project repo is private, you need to setup authentication:
+       1. [Generate a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+       1. [Add SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+       1. [Test connection](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 
 1. Install and run your Express application:
 
