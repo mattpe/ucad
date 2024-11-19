@@ -37,7 +37,7 @@ Cloud computing models provide different levels of control, flexibility, and man
    - Users manage applications and data, while the provider manages runtime, middleware, operating system, virtualization, servers, storage, and networking.
    - Examples: Heroku, Google App Engine, Microsoft Azure App Services.
    - Suitable for developers who want to focus on their software and data without dealing with servers, storage, and networking.
-3. *Infrastructure as a Service (IaaS)*
+3. **Infrastructure as a Service (IaaS)**
    - IaaS provides fundamental computing resources such as virtual machines, storage, and networks over the internet. Users have control over their infrastructure, similar to traditional physical data centers, but it's available over the cloud.
    - Users have control over operating systems, storage, deployed applications, and possibly limited control of select networking components (e.g., host firewalls).
    - Examples: Amazon Web Services (AWS), Microsoft Azure, Google Compute Engine (GCE).
