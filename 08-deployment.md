@@ -110,7 +110,7 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
    ```
 
 2. Check configuration files `/etc/apache2/` & start `sudo systemctl start apache2`
-3. Add write permissions to your user account for the webroot folder `/var/www/html`: `sudo chown <MYUSERNAME>.<GROUP> /var/www/html`
+3. Add write permissions to your user account for the webroot folder `/var/www/html`: `sudo chown <MYUSERNAME>:<GROUP> /var/www/html`
 4. Copy your UI files to the webroot using e.g. scp/filezilla/winscp or clone/pull from GitHub
 5. Test with browser <http://my.server.ipaddress.or.hostname>
 6. Enable HTTPS connections using Let's encrypt & Certbot
