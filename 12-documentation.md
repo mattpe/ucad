@@ -217,7 +217,7 @@ authRouter.route('/me').get(authenticateToken, getMe);
 
 ### Other options
 
-- [JSDoc](https://jsdoc.app/) is a Javadoc like documentation generator for JavaScript. It allows you to document your code with special comments that can then be automatically turned into detailed documentation in HTML format. It supports [markdown](https://jsdoc.app/plugins-markdown) in comments. Can be [integrated with Swagger](https://www.npmjs.com/package/swagger-jsdoc).
+- [JSDoc](https://jsdoc.app/) is a Javadoc like documentation generator for JavaScript. It allows you to document your code with special comments that can then be automatically turned into detailed documentation in HTML format. It supports [markdown](https://jsdoc.app/plugins-markdown) in comments. Can be [integrated with Swagger](https://www.npmjs.com/package/swagger-jsdoc), ([related how-to article](https://dev.to/kabartolo/how-to-document-an-express-api-with-swagger-ui-and-jsdoc-50do)).
 - [Postman](https://www.postman.com/) is primarily known as an API testing tool, but it also offers [robust features for API documentation](https://www.postman.com/api-platform/api-documentation/).
 - [Slate](https://github.com/slatedocs/slate) is an open-source tool that creates intelligent and responsive API documentation web page. Documentation is written in Markdown format.
 
@@ -226,7 +226,7 @@ authRouter.route('/me').get(authenticateToken, getMe);
 ## Assignment 6, part B - API Documentation
 
 1. Continue your existing Express app and create a new branch `docs`
-1. Create API documentation for your app using [apidoc](https://apidocjs.com/), Swagger or other similar tool of your own choice (max. 3 points)
+1. Create API documentation for your RESTful API using [apidoc](https://apidocjs.com/), Swagger or other similar tool of your own choice (max. 3 points)
    - install needed packages
    - generate documentation (for example to `docs` folder using an npm script)
    - serve the documentation withing your app (for example using `express.static` middleware)

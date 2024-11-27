@@ -1,3 +1,8 @@
+/* eslint-disable no-undef */
+
+// NOTE: you need to change apiIUrl to match your server address
+// CHECK also endpoint paths in fetch() functions
+const apiUrl = 'http://localhost:3000';
 const output = document.querySelector('#output');
 let token = '';
 
@@ -12,7 +17,7 @@ regForm3.addEventListener('submit', async (event) => {
     email: regForm3.email.value
   };
 
-  const response = await fetch('/api/users', {
+  const response = await fetch(apiUrl + '/api/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -35,7 +40,7 @@ loginForm2.addEventListener('submit', async (event) => {
     password: loginForm2.password.value,
   };
 
-  const response = await fetch('/api/auth/login', {
+  const response = await fetch(apiUrl + '/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -57,7 +62,7 @@ uploadForm2.addEventListener('submit', async (event) => {
   event.preventDefault();
   // Create FormData object from the html form
   const formData = new FormData(uploadForm2);
-  const response = await fetch('/api/media', {
+  const response = await fetch(apiUrl + '/api/media', {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + token,

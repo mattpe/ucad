@@ -40,6 +40,7 @@ While data security and data privacy are distinct, they are deeply interconnecte
 1. **Authentication**
    - Implement strong authentication mechanisms to ensure that only authorized users or systems can access the API.
    - Common methods include API keys, OAuth, JWT (JSON Web Tokens), or other token-based systems.
+   - 2FA (Two-Factor Authentication) or MFA (Multi-Factor Authentication) can be used to add an extra layer of security.
 1. **Authorization**
    - Define and enforce proper access controls to restrict users or systems to only the resources they are allowed to access.
    - Implement role-based access control (RBAC) or attribute-based access control (ABAC) as needed. (Models can be combined.)
@@ -107,6 +108,7 @@ Reading:
 
 Reading:
 
+- [Traficom National Cyber Security Centre Finland: Strong Password Guidelines](https://www.kyberturvallisuuskeskus.fi/en/ncsc-news/instructions-and-guides/longer-better-how-create-strong-password)
 - [NIST Password Guidelines 2024](https://www.auditboard.com/blog/nist-password-guidelines/)
 - [Salted Password Hashing - Doing it Right](https://crackstation.net/hashing-security.htm)
 - xkcd comic classics: [Password Strength](https://xkcd.com/936/), [Password Reuse](https://xkcd.com/792/)
@@ -116,17 +118,33 @@ Reading:
 ### Password Hashing in practice
 
 1. Install [bcryptjs](https://www.npmjs.com/package/bcryptjs): `npm i bcryptjs` ([bcrypt](https://www.npmjs.com/package/bcrypt) is another option but it has more dependencies)
-1. Update user creation to use bcrypt and implement password hashing (asynchronously)
+1. Update user creation function in _user controller_ to use _bcrypt_ and implement password hashing (asynchronously)
    - `import bcrypt from 'bcryptjs';`
    - Generate a salt: `const salt = await bcrypt.genSalt(10);`
-   - Hash a password: `const hashedPassword = bcrypt.hash(myPlaintextPassword, salt);`
+   - Hash a password: `const hashedPassword = await bcrypt.hash(myPlaintextPassword, salt);`
    - Store the hashed password to database instead of the plain text password
 1. Update user authentication to use bcrypt for password check in _auth-controller.js_
    - Compare the posted password to the hash found in database: `const match = await bcrypt.compare(myPlaintextPassword, hash);` (returns a boolean)
-   - You might need to modify the user model to get the password hash from database
-   - Only if the password matches, generate a token and return it to the client
-   - Do not return the password hash to the client (remove it from the user object before sending it to the client)
-   - Note that after this the plain text passwords in the database are not usable anymore, so you need to create new users with a new password or update the existing users' passwords.
+   - You need to update the _user model_ to return the password hash for the user (username) from database
+   - Only if the input password and the hash match, generate a token and return it to the client
+   - Do not return the password hash to the client (if password is included in the user object, remove it before sending user information to the client)
+   - Note that after this the plain text passwords in the database are not usable anymore, so you need to create new test users with new passwords or update the existing users' passwords to hashed ones.
+
+### Enabling CORS for development
+
+Needed for cross-origin requests, e.g., when the front-end is served from a Vite server which is different domain from the Express server running the back-end.
+
+1. Install [cors package](https://www.npmjs.com/package/cors): `npm i cors`
+1. Enable CORS for all origins and routes in _index.js_:
+
+   ```javascript
+   import cors from 'cors';
+   ...
+   app.use(cors());
+   ...
+   ```
+
+In production, you should consider more restrictive CORS settings. If you serve the front-end from the same domain (server and port) as the back-end (e.g. use Express static file server for the front-end files), you might not need CORS at all.
 
 ---
 
