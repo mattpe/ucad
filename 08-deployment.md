@@ -208,16 +208,19 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
       <VirtualHost *:443>
         
         # some existing conf stuff here
-        ...
-        ...
 
-        # Choose only one of the following options:
-        # conf for URL subpath, e.g.: https://myserver.example.com/api/ <-> localhost:3000
+        #...
+        #...
+
+        # Choose only (uncomment or copy) one of the following configuration options:
+      
+        # configuration for URL subpath, e.g.: https://myserver.example.com/api/ <-> localhost:3000
         #ProxyPreserveHost On
         #ProxyPass /api/ http://127.0.0.1:3000/
         #ProxyPassReverse /api/ http://127.0.0.1:3000/
 
-        # OR conf for root path: https://myserver.example.com/ <-> localhost:3000
+        # OR configuration for root path: https://myserver.example.com/ <-> localhost:3000
+        # this is the recommended (easier) option
         ProxyPreserveHost On
         ProxyPass / http://127.0.0.1:3000/
         ProxyPassReverse / http://127.0.0.1:3000/
@@ -282,7 +285,7 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
 
 If you can't test with your own client app yet, a simple front-end example for testing access to the REST API are found [here](./assets/example-ui/) and Vite version [here](https://github.com/mattpe/ucad-test-client).
 
-Front-end HTML/CSS/JS files can be served from any web server. **Easiest solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues and the apache proxy setup done earlier works out-of-the-box. For example when using Vite for front-end development:
+Front-end HTML/CSS/JS files can be served from any web server. **Easiest and the recommended solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues and the apache proxy setup done earlier works out-of-the-box. For example when using Vite for front-end development:
 
 1. Build your Vite app 
    - **Note:** Remember to update your API connections (`fetch()` function calls) in your client code to use the real server's URL address instead of `localhost:3000`!
