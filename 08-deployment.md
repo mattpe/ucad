@@ -280,6 +280,8 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
 
 #### Publishing Front-end application (Client)
 
+If you can't test with your own client app yet, a simple front-end example for testing access to the REST API are found [here](./assets/example-ui/) and Vite version [here](https://github.com/mattpe/ucad-test-client).
+
 Front-end HTML/CSS/JS files can be served from any web server. **Easiest solution** is to use the [Express static](https://expressjs.com/en/starter/static-files.html) files serving option. Then you don't need care about cors issues and the apache proxy setup done earlier works out-of-the-box. For example when using Vite for front-end development:
 
 1. Build your Vite app 
@@ -293,7 +295,6 @@ Front-end HTML/CSS/JS files can be served from any web server. **Easiest solutio
 1. Upload/copy/clone your front-end files to the server's `/var/www/html/` directory
 1. Update Apache config by enabling `DocumentRoot` and modifying proxy settings for Node app to use the sub url path version
 1. Test: open a browser and visit `https://<your-server-address>/` and `https://<your-server-address>/api/`
-Some simple front-end examples how to access the REST API are found [here](./assets/example-ui/).
 
 #### Cross-Origin Resource Sharing (CORS)
 
