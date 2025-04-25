@@ -478,3 +478,13 @@ Think about media sharing app. What kind of data is needed?
 **Returning:** Check assignment in OMA.
 
 **Grading:** max 2 points
+
+---
+
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>

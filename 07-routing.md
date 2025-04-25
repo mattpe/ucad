@@ -506,3 +506,13 @@ export {getMedia, getMediaById, postMedia, putMedia, deleteMedia};
 **Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responses in practice). Check assignment in OMA for more details.
 
 **Grading:** max 5 (+1 extra) points, see details in assignment requirements above.
+
+---
+
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
