@@ -341,3 +341,13 @@ Think about the features of your server-side application/API. What kind of data 
 **Returning:** Check assignment in OMA.
 
 **Grading:** max 4 points
+
+---
+
+<script type="module">
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
