@@ -17,27 +17,33 @@ and:
 
 ## Architecture and concepts
 
-Client-server architecture in web applications
+Typical client-server architecture in web applications
 
 ```mermaid
 graph TD
 
-subgraph Client 
-   A[HTML/CSS/JS user Interface] <--> B[JS client-side Logic]
-   B --> C[Request to Server]
+subgraph "Client (browser)"
+   DOM[HTML/CSS user interface, DOM] -- events --> CSL["Client-side Logic (JavaScript)"]
+   CSL -- DOM manipulation --> DOM
 end
 
-subgraph Server
-   C --> D[Server-side Logic]
-   D <--> E[Database]
-   D --> F[Response to Client]
-   G[Static file server] --> A
+subgraph "Web server"
+   SSL[Server-side Logic]
+   SFS[Static file server]
 end
 
-F --> B
+subgraph DBMS
+   DB[(Database)]
+end
+
+DOM -- HTTP GET --> SFS
+SFS -- assets --> DOM
+CSL -- HTTP CRUD requests --> SSL
+SSL -- HTTP responses (JSON) --> CSL
+SSL <-- SQL--> DB
 ```
 
-1. Web browser (the Client) loads HTML, CSS, JavaScript, images and other static UI files from the server.
+1. Web browser (the Client) loads HTML, CSS, JavaScript, images and other static UI files from the server using HTTP GET requests.
 1. The user interacts with the user interface on the client side.
 1. Based on the interaction, the Client-side Logic prepares a request to send to the server.
 1. The request is sent to the Server.
