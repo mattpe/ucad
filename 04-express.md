@@ -2,9 +2,9 @@
 
 <https://expressjs.com/>
 
->Fast, unopinionated, minimalist web framework for Node.js
+>Fast, unopinionated, minimalist (and most popular) web framework for Node.js
 
-Express provides a robust web application feature set and many [other popular frameworks](https://expressjs.com/en/resources/frameworks.html) are built on top of the Express framework.
+Express provides a robust set of features for web and mobile applications and is often used to build REST APIs. It is a thin layer built on top of Node.js that provides utility for many common tasks, such as routing and handling requests and responses.
 
 ## Installation
 
@@ -16,7 +16,7 @@ Express package is saved as a dependency in the project's `package.json` file.
 
 ## Hello world web app
 
-Node.js using built-in `http` module:
+In the first assignment we built a simple web server with Node.js using built-in `http` module:
 
 ```js
 import http from 'http';
@@ -33,7 +33,7 @@ server.listen(port, hostname, () => {
 });
 ```
 
-Node with Express:
+Now, when using Express, the same app can be implemented like this:
 
 ```js
 import express from 'express';
@@ -63,19 +63,10 @@ app.listen(port, hostname, () => {
 
 ### Serving static files
 
-1. Create a folder `src/public` and add any static files into it, e.g. html, css, js, images, etc.
-1. Serve the files: `app.use('/static', express.static(path.join(__dirname, 'public')));`
-1. Access the files in `public` folder at `http://localhost:3000/static/...`
-
-Note: If using ES modules (`import` statements instead of CommonJS `require()`) and `path.join()` when serving static files, you don't have `__dirname` variable by default. You need set it manually:
-
-```js
-import path from 'path';
-import {fileURLToPath} from 'url';
-...
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-```
+1. Create a folder `public` into your project folder and add any static files into it, e.g. html, css, js, images, etc.
+1. Serve the files using root URL: `app.use(express.static('public'));`
+   - or if you want to use a sub path in the URL for the files folder: `app.use('/static', express.static('public'));`
+1. Access the files in `public` folder at `http://localhost:3000/filename` when using root URL or `http://localhost:3000/static/filename` when using sub path
 
 ### Using Pug for server-side rendered (SSR) content
 
