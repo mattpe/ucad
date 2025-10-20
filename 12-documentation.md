@@ -231,6 +231,6 @@ authRouter.route('/me').get(authenticateToken, getMe);
    - generate documentation (for example to `docs` folder using an npm script)
    - serve the documentation withing your app (for example using `express.static` middleware)
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practise). Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ in `readme.md` including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Submit a direct link to the assignment branch to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 3 points, see details in assignment requirements above
