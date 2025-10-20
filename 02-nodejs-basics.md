@@ -47,16 +47,16 @@ A note of [beeing dependent on 3rd party packages](https://dev.to/chaitanyasuvar
    ];
    ```
 
-   - Add `.prettierrc.cjs` file with the following content:
+   - Add `.prettierrc.json` file with the following content:
 
    ```js
-   // sample .prettierrc.cjs
-   module.exports = {
-     semi: true,
-     singleQuote: true,
-     bracketSpacing: false,
-     trailingComma: 'all',
-   };
+   // sample .prettierrc.json
+   {
+      "semi": true,
+      "singleQuote": true,
+      "bracketSpacing": false,
+      "trailingComma": "all"
+   }
    ```
 
 1. Install `nodemon` as a development dependency: `npm install --save-dev nodemon`.
