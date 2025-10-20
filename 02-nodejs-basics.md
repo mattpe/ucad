@@ -67,6 +67,7 @@ A note of [beeing dependent on 3rd party packages](https://dev.to/chaitanyasuvar
    ...
    "type": "module",
    "scripts": {
+     "start": "node src/index.js", 
      "dev": "nodemon src/index.js",
      ...
    ```
@@ -97,7 +98,22 @@ A note of [beeing dependent on 3rd party packages](https://dev.to/chaitanyasuvar
    });
    ```
 
-1. Test your setup: `npm run dev`
+1. Test your initial app using the scripts defined in `package.json`:
+   - `npm start` to start the server with node
+   - `npm run dev` to start the server with nodemon (recommended for development)
+   - to stop the server hit _ctrl-c_
+
+1. Create a new local repository and setup a remote repository on GitHub and push your current local project to Github.
+
+    ```sh
+    git init
+    git add .
+    git commit -m "Initial commit"
+    git remote add origin <YOUR-REPO-URL>
+    git push -u origin main
+    ```
+
+Now you have a basic Node.js back-end application project setup with ESLint, Prettier, and nodemon. It creates a simple HTTP server that listens on port 3000 and responds with "Welcome to my REST API!" to any incoming request.
 
 `req` variable is an [request object](https://nodejs.org/api/http.html#class-httpclientrequest) containing information about the HTTP request that raised the event. e.g.:
 
@@ -112,6 +128,8 @@ In response to `req`, use [response object's](https://nodejs.org/api/http.html#c
 - `res.end()`: send te response
 
 Payload data (request body) can be [extracted manually](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction#request-body) from the request stream.
+
+By handling different request URLs and methods and sending appropriate responses, you can start building your REST API by adding more routes and functionality to your `index.js` file or by creating additional modules in the `src/` folder.
 
 ### Simple example of REST API documentation
 
@@ -162,6 +180,9 @@ This is a basic table for documentation. Depending on the complexity of the API,
    - e.g. serve some real data, generate something of the data sent to the server
    - can be basically anything, use you imagination and play with the code
    - describe/document your API in readme.md
+1. Finally, push your assignment branch (`node-start`) to Github.
+   - make sure that your code is locally committed to correct branch
+   - push the branch to Github: `git push -u origin node-start`
 
 Note: Do not use the Express framework within this assignment.
 
@@ -176,6 +197,6 @@ Remember that following good coding practices makes your app a lot more easier t
 - Line length: avoid writing horizontally long lines of code
 - Avoid large code files, split to smaller modules
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Optionally, you can write similar report in the `readme.md` (or other markdown) file of your project and submit a direct link to the file to OMA. Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ in `readme.md` including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Submit a direct link to the assignment branch to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.
