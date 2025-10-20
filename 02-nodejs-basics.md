@@ -123,7 +123,7 @@ Now you have a basic Node.js back-end application project setup with ESLint, Pre
 
 In response to `req`, use [response object's](https://nodejs.org/api/http.html#class-httpserverresponse) (`res`) properties/methods to send the desired HTTP response back to the client. e.g.:
 
-- `re.statusCode`: set the response status code
+- `res.statusCode`: set the response status code
 - `res.write()`: add content to response body
 - `res.end()`: send te response
 
