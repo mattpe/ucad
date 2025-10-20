@@ -187,6 +187,6 @@ Implement a simple REST API with Express framework:
    - match the filenames with the mock data
 1. Extra: Use [jsDoc](https://jsdoc.app/index.html) comments
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Optionally, you can write similar report in the `readme.md` (or other markdown) file of your project and submit a direct link to the file to OMA. Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ in `readme.md` including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Submit a direct link to the assignment branch to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 5 points, see details in assignment requirements above.

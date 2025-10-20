@@ -11,7 +11,7 @@ Web back-end development, course material & assignments.
 5. [Relational Databases & SQL 1](05-databases.md)
 6. [Relational Databases & SQL 2](06-database-api.md)
 7. [Routing, middlewares and database in Express](07-routing.md)
-8. [Deployment](08-deployment.md) (project course assignment)
+8. [Deployment](08-deployment.md) (assignment for the parallel project course)
 9. [Application state and authentication](09-authentication.md)
 10. [Input validation and error handling](10-validation.md)
 11. [Web application security](11-security.md)

@@ -47,16 +47,16 @@ A note of [beeing dependent on 3rd party packages](https://dev.to/chaitanyasuvar
    ];
    ```
 
-   - Add `.prettierrc.cjs` file with the following content:
+   - Add `.prettierrc.json` file with the following content:
 
    ```js
-   // sample .prettierrc.cjs
-   module.exports = {
-     semi: true,
-     singleQuote: true,
-     bracketSpacing: false,
-     trailingComma: 'all',
-   };
+   // sample .prettierrc.json
+   {
+      "semi": true,
+      "singleQuote": true,
+      "bracketSpacing": false,
+      "trailingComma": "all"
+   }
    ```
 
 1. Install `nodemon` as a development dependency: `npm install --save-dev nodemon`.
@@ -123,7 +123,7 @@ Now you have a basic Node.js back-end application project setup with ESLint, Pre
 
 In response to `req`, use [response object's](https://nodejs.org/api/http.html#class-httpserverresponse) (`res`) properties/methods to send the desired HTTP response back to the client. e.g.:
 
-- `re.statusCode`: set the response status code
+- `res.statusCode`: set the response status code
 - `res.write()`: add content to response body
 - `res.end()`: send te response
 

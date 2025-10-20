@@ -337,6 +337,6 @@ Input data validation in web applications is a critical process that ensures the
    - Use [express-validator](https://express-validator.github.io/docs/)
    - Specify the validation rules for each field in the request bodies
 
-**Returning:** A short report _describing your implementation_ including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Check assignment in OMA for more details.
+**Returning:** A short report _describing your implementation_ in `readme.md` including a link to your code in Github and screen shots of your running environment (e.g. images displaying HTTP requests and corresponding responsenses in practice). Submit a direct link to the assignment branch to OMA. Check assignment in OMA for more details.
 
 **Grading:** max 3 points, see details in assignment requirements above.
