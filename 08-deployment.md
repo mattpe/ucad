@@ -1,27 +1,4 @@
-# Application deployment
-
-## Running environment
-
-In server-side applications, the running environment, often referred to as the "runtime environment" or simply the "runtime," is the software and hardware infrastructure where the server-side code of an application executes. This environment provides the necessary resources and services for the server-side code to run, handle requests, process data, and generate responses. The choice of a running environment depends on various factors, including the programming language, framework, and the specific requirements of the application.
-
-- **Server hardware**: The physical or virtual server where the application runs. It includes CPU, memory (RAM), storage (disk space), and network connectivity. The server hardware's capacity and configuration impact the application's performance and scalability.
-- **Operating system (OS)**: The server typically runs on an operating system (OS), such as Linux, Windows Server, or macOS Server. The OS manages system resources, handles hardware communication, and provides a platform for running software.
-- **Web server**: In web applications, a web server software (e.g., Apache, Nginx, IIS) often serves as an intermediary between client requests and the server-side application. It handles tasks like request routing, load balancing, and static file serving.
-- **Runtime for the programming language**: The specific runtime environment for the chosen programming language. For example:
-  - For Python applications, the Python runtime environment is necessary, which includes the Python interpreter.
-  - For Java applications, the Java Virtual Machine (JVM) serves as the runtime environment.
-  - For Node.js applications, the Node.js runtime environment is required.
-  - For PHP applications, the PHP interpreter is used.
-- **Application server (optional)**: In some cases, like with Java-based applications, an application server like Tomcat, WildFly, or WebSphere may be used. It provides additional services like connection pooling, transaction management, and security. With node.js the pm2 process manager can be used for similar purposes.
-- **Database server**: If the application interacts with a database, a database server (e.g., MySQL, PostgreSQL, MongoDB) is part of the runtime environment. It manages data storage, retrieval, and manipulation.
-- **Frameworks & middleware**: Middleware components and frameworks used to develop the server-side application. These may include web frameworks (e.g., Flask, Ruby on Rails, Express.js), message brokers (e.g., RabbitMQ), and caching systems (e.g., Redis).
-- **Environment variables and configuration**: Settings and configuration parameters that control the behavior of the application. These may include database connection strings, API keys, and other environment-specific variables. These values usually differ between development, testing, and production environments.
-- **Security components**: Security measures like firewalls, intrusion detection systems, and encryption protocols that protect the server and its data.
-- **Monitoring and logging tools**: Tools and services that help monitor the server's performance, track errors, and log application events for debugging and analysis.
-- **Load balancers (for scalability)**: In a high-traffic environment, load balancers distribute incoming requests across multiple servers to ensure scalability and high availability.
-- **Containerization and orchestration (e.g., Docker, Kubernetes)**: In modern server environments, containerization technologies and orchestration platforms are used to package, deploy, and manage applications and their dependencies in a consistent and scalable manner.
-
-The choice of the running environment components depends on factors like the type of application, expected traffic, scalability requirements, and the technology stack being used. Designing a robust and efficient running environment is essential for ensuring the reliable operation of server-side applications.
+# Cloud Services and Application Deployment
 
 ## Cloud services and environments
 
@@ -45,9 +22,52 @@ Cloud computing models provide different levels of control, flexibility, and man
 
 >SaaS is like renting a house - you use it as it is, without worrying about maintaining it.
 PaaS is like renting the land and building your house - you control the house but not the land it’s on.
-IaaS is like leasing a plot of land - you have full control over the land and what you build on it, but you don’t own the land.
+IaaS is like leasing/buying a plot of land - you have full control over the land and what you build on it, but you don’t own the land.
 
-## Installing a Virtual Server on Azure cloud environmnent (IaaS)
+## Public vs. Private
+
+Cloud services can be deployed in different ways, primarily categorized as public, private, or hybrid clouds.
+
+![Cloud deployment models](assets/hybrid-cloud.png)
+
+- **Public Cloud**
+  - Public cloud services are provided by third-party providers over the public internet, making them available to anyone who wants to use or purchase them.
+  - Resources such as servers and storage are owned and operated by the cloud provider and shared among multiple organizations (tenants).
+  - Examples: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).
+  - Benefits: Cost-effective, scalable, and easy to access. Ideal for businesses that want to avoid the complexity of managing their own infrastructure.
+- **Private Cloud**
+  - Private cloud services are used exclusively by a single organization. The cloud infrastructure can be hosted on-premises or by a third-party provider.
+  - Resources are not shared with other organizations, providing greater control over security and compliance.
+- **Hybrid Cloud**
+  - Hybrid cloud combines public and private cloud elements, allowing data and applications to be shared between them.
+  - Organizations can take advantage of the scalability and cost-effectiveness of public clouds while maintaining control over sensitive data in private clouds.
+
+## Running environment
+
+In server-side applications, the running environment, often referred to as the "runtime environment" or simply the "runtime," is the software and hardware infrastructure where the server-side code of an application executes. This environment provides the necessary resources and services for the server-side code to run, handle requests, process data, and generate responses. The choice of a running environment depends on various factors, including the programming language, framework, and the specific requirements of the application.
+
+- **Server hardware**: The physical or virtual server where the application runs. It includes CPU, memory (RAM), storage (disk space), and network connectivity. The server hardware's capacity and configuration impact the application's performance and scalability.
+- **Operating system (OS)**: The server typically runs on an operating system (OS), such as Linux, Windows Server, or macOS Server. The OS manages system resources, handles hardware communication, and provides a platform for running software.
+  - _Guest OS_ is a term used when the OS is running inside a virtual machine (VM) or container.
+  - _Host OS_ is the underlying OS that runs on the physical server and hosts the VMs or containers.
+- **Web server**: In web applications, a web server software (e.g., Apache, Nginx, IIS) often serves as an intermediary between client requests and the server-side application. It handles tasks like request routing, load balancing, and static file serving.
+- **Runtime for the programming language**: The specific runtime environment for the chosen programming language. For example:
+  - For Python applications, the Python runtime environment is necessary, which includes the Python interpreter.
+  - For Java applications, the Java Virtual Machine (JVM) serves as the runtime environment.
+  - For Node.js applications, the Node.js runtime environment is required.
+  - For PHP applications, the PHP interpreter is used.
+- **Application server (optional)**: In some cases, like with Java-based applications, an application server like Tomcat, WildFly, or WebSphere may be used. It provides additional services like connection pooling, transaction management, and security. With node.js the pm2 process manager can be used for similar purposes.
+- **Database server**: If the application interacts with a database, a database server (e.g., MySQL, PostgreSQL, MongoDB) is part of the runtime environment. It manages data storage, retrieval, and manipulation.
+- **Frameworks & middleware**: Middleware components and frameworks used to develop the server-side application. These may include web frameworks (e.g., Flask, Ruby on Rails, Express.js), message brokers (e.g., RabbitMQ), and caching systems (e.g., Redis).
+- **Environment variables and configuration**: Settings and configuration parameters that control the behavior of the application. These may include database connection strings, API keys, and other environment-specific variables. These values usually differ between development, testing, and production environments.
+- **Security components**: Security measures like firewalls, intrusion detection systems, and encryption protocols that protect the server and its data.
+- **Monitoring and logging tools**: Tools and services that help monitor the server's performance, track errors, and log application events for debugging and analysis.
+- **Load balancers (for scalability)**: In a high-traffic environment, load balancers distribute incoming requests across multiple servers to ensure scalability and high availability.
+- **Containerization and orchestration (e.g., Docker, Kubernetes)**: In modern server environments, containerization technologies and orchestration platforms are used to package, deploy, and manage applications and their dependencies in a consistent and scalable manner.
+
+The choice of the running environment components depends on factors like the type of application, expected traffic, scalability requirements, and the technology stack being used. Designing a robust and efficient running environment is essential for ensuring the reliable operation of server-side applications.
+
+## Installing a Virtual Server on Azure cloud environment (IaaS)
 
 ### Materials & links
 
@@ -71,23 +91,30 @@ IaaS is like leasing a plot of land - you have full control over the land and wh
 
 1. Sign up for a free [student account](https://azure.microsoft.com/en-us/free/students/) using your school email address & login, you should get some free credits (100 USD), [more info](https://docs.microsoft.com/en-us/azure/education-hub/azure-dev-tools-teaching/program-faq)
 1. Go to [Azure portal](https://portal.azure.com/)
-1. Create a resource: Virtual machine (VM), use server instance, e.g. latest Ubuntu server LTS)
-
-   - select [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) & disks according your needs (Think about what is the minimum for a web server? Check the OS system requirements, etc.)
-   - 'Standard_B1ms' is the teacher's recommendation for this course
-   - NOTE: you have 100 USD of student credits to spend in total (for a one year)
-   - Allow access to SSH, HTTP and HTTPS ports
-
-   ![Basic example setup](assets/azure-vm-settings.png)
-
-   - Finally, hit the _CREATE_ button and wait for the VM deployment to finish.
+1. Create a resource: **Virtual machine (VM)** with following settings:
+   - Choose your subscription (Azure for Students)
+   - Create new resource group, e.g. `web-project-rg`
+   - Virtual machine name: e.g. `my-web-server`
+   - Region: choose the closest one
+     - Note: with free student account you may have limited options and you might need to check which regions are available for you, more info: <https://learn.microsoft.com/en-us/answers/questions/5549511/student-account-in-which-regions-can-i-deploy-a-vm>
+   - Availability options: No infrastructure redundancy required
+   - Security type: Standard
+   - Image: Choose a Linux server image, e.g. latest Ubuntu Server LTS
+   - Select [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) & disks according your needs (Think about what is the minimum for a web server? Check the OS system requirements, etc.)
+     - 'Standard_B1ms' is the teacher's recommendation for this course
+     - NOTE: you have 100 USD of student credits to spend in total (for a one year)
+   - Authentication type: Password (or SSH public key if you prefer that), this is the admin user account for the VM
+   - Public inbound ports: Allow access to SSH, HTTP and HTTPS ports
+   - For other settings you can leave the default values
+   - Disk tab: Change OS disk type to Standard SSD
+   - Networking tab: Make sure that a new public IP address & subnet is created, default settings are ok
+   - Management tab: default settings are ok, automatic shutdown can be useful in order to save credits
+   - Click _Review + create_ and check that all settings are ok
+   - Finally hit the _CREATE_ button and wait for the VM deployment to finish
    - After successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_ for your public IP address.
-   - _Note:_ VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
-
+   - Note: VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
 1. Use SSH connection for managing your VM (`ssh username@PUBLIC_IP/YOUR_DOMAIN_NAME` in terminal/git bash or use e.g. [Putty](https://www.putty.org/))
-
    - Optional: use public key authentication instead of username/password: [Instructions](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-22-04)
-
 1. Make sure you have all recent updates installed (this should be done on weekly basis)
 
    ```bash
