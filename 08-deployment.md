@@ -101,16 +101,16 @@ The choice of the running environment components depends on factors like the typ
    - Security type: Standard
    - Image: Choose a Linux server image, e.g. latest Ubuntu Server LTS
    - Select [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) & disks according your needs (Think about what is the minimum for a web server? Check the OS system requirements, etc.)
-     - 'Standard_B1ms' is the teacher's recommendation for this course
+     - 'Standard_B1ms' or similar is the teacher's recommendation for this course
      - NOTE: you have 100 USD of student credits to spend in total (for a one year)
    - Authentication type: Password (or SSH public key if you prefer that), this is the admin user account for the VM
    - Public inbound ports: Allow access to SSH, HTTP and HTTPS ports
    - For other settings you can leave the default values
-   - Disk tab: Change OS disk type to Standard SSD
-   - Networking tab: Make sure that a new public IP address & subnet is created, default settings are ok
-   - Management tab: default settings are ok, automatic shutdown can be useful in order to save credits
+   - **Disk tab:** Change OS disk type to Standard SSD
+   - **Networking tab:** Make sure that a new public IP address & subnet is created, default settings are ok
+   - **Management tab:** default settings are ok, automatic shutdown can be useful in order to save credits
    - Click _Review + create_ and check that all settings are ok
-   - Finally hit the _CREATE_ button and wait for the VM deployment to finish
+1. Finally, hit the _CREATE_ button and wait for the VM deployment to finish
    - After successful deployment of the virtual machine go to the resources's _Overview_ page and configure the _DNS name_ for your public IP address.
    - Note: VM is paid by hour when the VM is running. In development use it's a good idea to stop the VM when you don't need it (start/stop buttons are found in Azure portal).
 1. Use SSH connection for managing your VM (`ssh username@PUBLIC_IP/YOUR_DOMAIN_NAME` in terminal/git bash or use e.g. [Putty](https://www.putty.org/))
