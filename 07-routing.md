@@ -365,8 +365,7 @@ Content-Type: image/png
 
 JavaScript variables in SQL queries should be handled using [prepared statements](https://sidorares.github.io/node-mysql2/docs#using-prepared-statements) to prevent SQL injection attacks.
 
->If you have parameters (`SELECT * FROM user WHERE user_id = ?` for an example) then suggestion is to use `execute()` method
-by default, and only use `query()` when hitting prepared statement syntax limitations (for example, sql IN statement).
+>If you have parameters (`SELECT * FROM user WHERE user_id = ?` for an example) in your query then suggestion is to use `execute()` method by default, and only use `query()` when hitting prepared statement syntax limitations (for example, sql IN statement).
 
 _media-model.js:_
 

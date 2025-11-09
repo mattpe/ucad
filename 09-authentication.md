@@ -228,15 +228,19 @@ In web applications, authentication is typically done by verifying a username an
     }
     ```
 
-    - Check the response and copy the token from the response body.
+     - Check the response and copy the token from the response body and use it in the requests for routes that need authentication.
+     - When using VS Code REST Client you can store the token to variable:
 
-    ```http
-    ### Get my user info
-    GET http://localhost:3000/api/auth/me
-    Authorization: Bearer <put-your-token-from-login-response-here>
-    ```
+     ```http
+     @token = <put-your-token-from-login-response-here>
 
-    - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
+     ### Get my user info
+     GET http://localhost:3000/api/v1/auth/me
+     Authorization: Bearer {{token}}
+     ```
+     
+     - Use the `Authorization` header with `Bearer <token>` for all routes that need authentication
+     - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
 
 1. Now you can use the authentication middleware with any route where needed.
    - Information about the authenticated user is passed to the controller in `req.user` object.
