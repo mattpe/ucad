@@ -339,6 +339,8 @@ Content-Type: image/png
     DB_NAME=databasename
     ```
 
+1. Add line `.env` to `.gitignore`.
+    - You can store a template of the file in version control as `.env.example`, just remove all sensitive data before committing.
 1. Study & install [mysql2](https://github.com/sidorares/node-mysql2#readme) package
 1. Create a new file `src/utils/database.js` and add the following code to it:
 
@@ -361,7 +363,10 @@ Content-Type: image/png
 
 ### MySQL2 examples
 
-JavaScript variables in SQL queries should be handled using [prepared statements](https://github.com/sidorares/node-mysql2#using-prepared-statements) to prevent SQL injection attacks.
+JavaScript variables in SQL queries should be handled using [prepared statements](https://sidorares.github.io/node-mysql2/docs#using-prepared-statements) to prevent SQL injection attacks.
+
+>If you have parameters (`SELECT * FROM user WHERE user_id = ?` for an example) then suggestion is to use `execute()` method
+by default, and only use `query()` when hitting prepared statement syntax limitations (for example, sql IN statement).
 
 _media-model.js:_
 
@@ -383,7 +388,7 @@ const listAllMedia = async () => {
 
 const findMediaById = async (id) => {
   try {
-    const [rows] = await promisePool.query('SELECT * FROM mediaItems WHERE media_id = ?', [id]);
+    const [rows] = await promisePool.execute('SELECT * FROM mediaItems WHERE media_id = ?', [id]);
     console.log('rows', rows);
     return rows[0];
   } catch (e) {
@@ -398,7 +403,7 @@ const addMedia = async (media) => {
                VALUES (?, ?, ?, ?, ?, ?)`;
   const params = [user_id, filename, size, mimetype, title, description];
   try {
-    const rows = await promisePool.query(sql, params);
+    const rows = await promisePool.execute(sql, params);
     console.log('rows', rows);
     return {media_id: rows[0].insertId};
   } catch (e) {
@@ -453,7 +458,7 @@ const postMedia = async (req, res) => {
 };
 
 const putMedia = (req, res) => {
-  // not implemented in this example, this is/was homework!!!
+  // not implemented in this example, this is/(or already was) homework!!!
   res.sendStatus(200);
 };
 
