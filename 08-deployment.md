@@ -213,7 +213,7 @@ The choice of the running environment components depends on factors like the typ
 1. Install _node.js_ and _npm_  from [nodesource package repository](https://github.com/nodesource/distributions#ubuntu-versions) (follow instructions there if following is not working):
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
+   curl -sL https://deb.nodesource.com/setup_24.x -o /tmp/nodesource_setup.sh
    sudo bash /tmp/nodesource_setup.sh
    sudo apt install nodejs
    # check that the installed tools are working:
