@@ -76,13 +76,12 @@ Input data validation in web applications is a critical process that ensures the
     }
     ```
 
-1. Add validation middleware to the route handler and validation rules to the request body fields
+1. Add validation middleware to the route handler and validation rules to the request body fields, user creation example for `user-router.js`:
 
     ```js
     ...
     import {body} from 'express-validator';
     ...
-    // routes for /api/users/
     userRouter.route('/')
       .get(getUsers)
       .post(
@@ -124,7 +123,7 @@ Input data validation in web applications is a critical process that ensures the
   - _file_: required, max. 10 MB, only images or videos allowed
     - file needs to be validated with Multer's [fileFilter](https://github.com/expressjs/multer#filefilter)
 
-1. Use fileFilter to validate the file itself, multer can be configured in a separate file, e.g. _middlewares/upload.js_:
+1. Use `fileFilter` to validate the file itself, multer can be configured in a separate file, e.g. _middlewares/upload.js_:
 
     ```js
     import multer from 'multer';
@@ -297,6 +296,53 @@ Input data validation in web applications is a critical process that ensures the
     ...
     ```
 
+   - Create a generic validatation error handler middleware in `middlewares/error-handlers.js` to avoid code duplication
+
+
+      ```js
+      import {validationResult} from 'express-validator';
+
+      ...
+        
+      const validationErrors = async (req, res, next) => {
+        // validation errors can be retrieved from the request object (added by express-validator middleware)
+        const errors = validationResult(req);
+        // check if any validation errors
+        if (!errors.isEmpty()) {
+          const messages = errors
+              .array()
+              .map((error) => `${error.path}: ${error.msg}`)
+              .join(', ');
+          const error = new Error(messages);
+          error.status = 400;
+          next(error);
+          return;
+        }
+        next();
+      };
+        
+      export {validationErrors, ...};
+      ```
+
+   - Use the validation error handler middleware in your route handlers, user creation example for `user-router.js`:
+
+      ```js
+      ...
+      import {body} from 'express-validator';
+      import {validationErrors} from '../../middlewares/error-handlers.js';
+      ...
+      userRouter.route('/')
+        .get(getUsers)
+        .post(
+          body('email').trim().isEmail(),
+          body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric(),
+          body('password').trim().isLength({min: 8}),
+          validationErrors, // use the validation error handler middleware before the controller
+          postUser
+        );
+      ...
+      ```
+   
    - Modify _middlewares/upload.js_ to pass the error to the error handler middleware
 
     ```js
