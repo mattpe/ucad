@@ -239,7 +239,7 @@ In web applications, authentication is typically done by verifying a username an
      Authorization: Bearer {{token}}
      ```
      
-     - Use the `Authorization` header with `Bearer {{token}}` for all routes that need authentication
+     - Use the `Authorization` header with _Bearer {{token}}_ for all routes that need authentication
      - or test with Postman (just set 'Bearer token' on 'Authorization' tab after succesful login POST).
 
 1. Now you can use the authentication middleware with any route where needed.
