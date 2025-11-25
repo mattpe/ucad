@@ -147,8 +147,8 @@ const authRouter = express.Router();
  *
  * @apiDescription Sign in and get an authentication token for the user.
  *
- * @apiParam {String} username Username of the user.
- * @apiParam {String} password Password of the user.
+ * @apiBody {String} username Username of the user.
+ * @apiBody {String} password Password of the user.
  *
  * @apiParamExample {json} Request-Example:
  *    {
