@@ -127,7 +127,7 @@ In response to `req`, use [response object's](https://nodejs.org/api/http.html#c
 - `res.write()`: add content to response body
 - `res.end()`: send te response
 
-Payload data (request body) can be [extracted manually](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction#request-body) from the request stream.
+Payload data (request body) can be [extracted manually](https://www.geeksforgeeks.org/node-js/how-to-get-post-data-in-node-js/) from the request stream.
 
 By handling different request URLs and methods and sending appropriate responses, you can start building your REST API by adding more routes and functionality to your `index.js` file or by creating additional modules in the `src/` folder.
 
